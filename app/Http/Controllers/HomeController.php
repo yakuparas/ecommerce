@@ -1,0 +1,245 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Backend\CategoryController;
+use App\Models\Addres;
+use App\Models\Adress;
+use App\Models\Cart;
+use App\Models\Category;
+use App\Models\Country;
+use App\Models\gallery;
+use App\Models\Product;
+use App\Models\settings;
+use App\Models\slider;
+use App\Models\User;
+use App\Models\Zone;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
+class HomeController extends Controller
+{
+
+
+
+
+    public static function getsettings()
+    {
+        return settings::first();
+    }
+
+    public static function CatList()
+    {
+        return $catList=Category::where('parent_id','=',0)->with('children')->get();
+    }
+
+    public static function lastmodal()
+    {
+        return  $lastmodal=Product::limit(4)->orderByDesc('id')->get();
+    }
+
+
+    public static function getCart()
+    {
+        if (auth()->check())
+        {
+            return $cart=Cart::where('user_id',auth()->id())->get();
+        }else
+        {
+            return $cart=Cart::where('session_id',session()->getId())->get();
+        }
+
+
+
+    }
+
+
+
+
+
+    public  function index()
+     {
+
+         $slide=slider::get();
+         $last=Product::limit(6)->orderByDesc('id')->get();
+
+         return view('index',['slide'=>$slide,'last'=>$last]);
+     }
+
+
+     public function  login()
+     {
+         return view('login');
+     }
+
+     public function checkLogin(Request $request)
+     {
+
+         $request->validate([
+             'email' => 'required',
+             'password' => 'required',
+         ]);
+
+         $credentials = $request->only('email', 'password');
+
+
+         if (Auth::attempt($credentials)) {
+             return redirect()->route('index')->with('success','Giriş Yaptınız');
+         }
+
+         return redirect()->route('login')->with('error','Kullanıcı Adı veya Şifre Yanlış');
+
+     }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('/');
+    }
+
+    public function product($id)
+    {
+        $data=Product::find($id);
+        dd($data);
+
+
+    }
+
+    public function categoryproducts($id)
+    {
+        $data=Product::where('category_id',$id)->get();
+
+
+        $cat=Category::find($id);
+       return view('category',['data'=>$data,'cat'=>$cat]);
+    }
+
+    public function productdetail ($id)
+    {
+        $data = Product::find($id);
+        $last=Product::limit(6)->orderByDesc('id')->get();
+        $imagelist = gallery::where('pid',$id)->get();
+
+        $variants=DB::select("SELECT DISTINCT
+	product_variants.variant_id,
+	variants.name
+FROM
+	product_variants
+	INNER JOIN
+	variants
+	ON
+		product_variants.variant_id = variants.id
+WHERE
+	product_variants.product_id = $id");
+
+        $options=DB::select("SELECT DISTINCT
+	variant_options.variants_id,
+	variant_options.name,
+	variant_options.image,
+	product_variants.sku,
+	product_variants.quantity,
+	product_variants.price_prefix,
+	product_variants.price,
+	variant_options.id AS oid,
+	product_variants.id as pvid
+FROM
+	product_variants
+	INNER JOIN
+	variant_options
+	ON
+		product_variants.variant_options_id = variant_options.id
+WHERE
+	product_variants.product_id = $id");
+
+
+
+
+
+       return view('productdetail',['data'=>$data,'imagelist'=>$imagelist,'last'=>$last,'variants'=>$variants,'options'=>$options]);
+
+    }
+
+
+    public function profile()
+    {
+        $country=Country::all();
+        $zone=Zone::where('country_id','=','81')->get();
+
+        $adres=Addres::get();
+
+
+
+
+        return view('account',['country'=>$country,'zone'=>$zone,'adres'=>$adres]);
+    }
+
+    public function profileupdate(Request $request)
+    {
+
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $user->email=$request->email;
+        $user->name=$request->name;
+        $user->phone=$request->phone;
+        if($request->password!=null) {
+            $user->password=bcrypt($request->password);
+        }
+        $user->save();
+    }
+
+    public function createadres(Request $request)
+    {
+        $adress=new Addres();
+        $adress->user_id=Auth::id();
+        $adress->name=$request->name;
+        $adress->adress=$request->address;
+        $adress->city=$request->city;
+        $adress->postcode=$request->postcode;
+        $adress->country_id=$request->country;
+        $adress->zone_id=$request->zone;
+        $adress->save();
+
+
+        return redirect()->route('profile');
+
+    }
+
+    public function editadress(Request $request)
+    {
+        $adres=Addres::where('id','=',$request->id)->get();
+        $success = true;
+        return response()->json([
+            'success' => $success,
+            'name' => $adres[0]['name'],
+            'adress' => $adres[0]['adress'],
+            'city' => $adres[0]['city'],
+            'postcode' => $adres[0]['postcode'],
+            'country_id' => $adres[0]['country_id'],
+            'zone_id' => $adres[0]['zone_id'],
+        ]);
+    }
+
+    public function destroyadress(Request $request,$id)
+    {
+        $del = Addres::where('id', '=', $id)->delete();
+
+        if ($del)
+        {
+
+
+
+            return redirect()->route('profile');
+
+
+        }
+
+    }
+
+
+
+
+
+}
