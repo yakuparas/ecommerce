@@ -9,7 +9,7 @@ use App\Models\Order;
 
 
 
-class PayPalPaymentController extends Controller
+class PaypalPaymentController extends Controller
 {
     private  $gateway;
 

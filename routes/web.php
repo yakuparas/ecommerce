@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\PayPalPaymentController;
+use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,10 +24,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('payment', [PayPalPaymentController::class,'index'])->name("paypal.index");
-Route::post('charge', [PayPalPaymentController::class,'charge'])->name("paypal.charge");
-Route::get('success', [PayPalPaymentController::class,'success'])->name("paypal.success");
-Route::get('error', [PayPalPaymentController::class,'error'])->name("paypal.error");
+Route::get('payment', [PaypalPaymentController::class,'index'])->name("paypal.index");
+Route::post('charge', [PaypalPaymentController::class,'charge'])->name("paypal.charge");
+Route::get('success', [PaypalPaymentController::class,'success'])->name("paypal.success");
+Route::get('error', [PaypalPaymentController::class,'error'])->name("paypal.error");
 
 
 Route::get('/',[HomeController::class,'index'])->name('index');
