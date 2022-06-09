@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="text-end">
                                             <form action="{{ route('paypal.charge') }}" method="post">
-                                                <input type="text" name="amount" />
+                                                <input type="text" value="500" name="amount" />
                                                 {{ csrf_field() }}
                                                 <input type="submit" class="btn-solid btn" name="submit" value="Pay Now">
                                             </form>

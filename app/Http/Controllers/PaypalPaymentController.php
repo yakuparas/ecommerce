@@ -32,7 +32,7 @@ class PayPalPaymentController extends Controller
      */
     public function charge(Request $request)
     {
-       
+
         if($request->input('submit'))
         {
             try {
