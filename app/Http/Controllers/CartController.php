@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Addres;
 use App\Models\Cart;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
@@ -13,8 +14,11 @@ use Illuminate\Support\Facades\Log;
 use phpDocumentor\Reflection\Types\Array_;
 
 
+
 class CartController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -302,7 +306,9 @@ WHERE
                 $value->variantsprice=$total;
 
             }
-            return view('checkout',['data'=>$data]);
+            $adres=Addres::get();
+
+            return view('checkout',['data'=>$data,'adres'=>$adres]);
         }
         else
         {
@@ -310,4 +316,10 @@ WHERE
         }
 
     }
+
+
+
+
+
+
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PayPalPaymentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('payment', [PayPalPaymentController::class,'index'])->name("paypal.index");
+Route::post('charge', [PayPalPaymentController::class,'charge'])->name("paypal.charge");
+Route::get('success', [PayPalPaymentController::class,'success'])->name("paypal.success");
+Route::get('error', [PayPalPaymentController::class,'error'])->name("paypal.error");
+
 
 Route::get('/',[HomeController::class,'index'])->name('index');
 Route::get('/product/{id}/{slug}',[HomeController::class,'product'])->name('product');
@@ -38,8 +45,6 @@ Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
     Route::post('/createadres',[HomeController::class,'createadres'])->name('createadres');
     Route::post('/editadress',[HomeController::class,'editadress'])->name('editadress');
     Route::get('/destroyadress/{id}',[HomeController::class,'destroyadress'])->name('destroyadress');
-
-
 
 });
 
