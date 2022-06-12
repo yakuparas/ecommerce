@@ -4,7 +4,7 @@
             <a href="index.html">Admin</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">YP</a>
+            <a href="{{route('admin.dashboard')}}">YP</a>
         </div>
         <ul class="sidebar-menu">
             <li>
@@ -22,7 +22,7 @@
             </li>
 
             <li>
-              <a class="nav-link" href="{{route('admin.dashboard')}}"><i class="fas fa-truck"></i> <span>Siparişler</span></a>            </li>
+              <a class="nav-link" href="{{route('admin.order')}}"><i class="fas fa-truck"></i> <span>Siparişler</span></a>            </li>
             </li>
 
             <li>
@@ -33,10 +33,10 @@
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-cogs"></i> <span>Ayarlar</span></a>
               <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{route('admin.slider.list')}}">Slider</a></li>
-                  <li><a class="nav-link" href="modules-calendar.html">Para Birimleri</a></li>
+                  <li><a class="nav-link" href="{{route('admin.dashboard')}}">Para Birimleri</a></li>
                   <li><a class="nav-link" href="{{route('admin.settings.list')}}">Mağaza Ayarları</a></li>
-                  <li><a class="nav-link" href="modules-datatables.html">E-Posta Ayarları</a></li>
-                  <li><a class="nav-link" href="modules-datatables.html">Sanal Pos Ayarları</a></li>
+                  <li><a class="nav-link" href="{{route('admin.dashboard')}}">E-Posta Ayarları</a></li>
+                  <li><a class="nav-link" href="{{route('admin.dashboard')}}">Sanal Pos Ayarları</a></li>
               </ul>
           </li>
         </ul>

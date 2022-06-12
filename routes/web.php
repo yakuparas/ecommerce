@@ -123,6 +123,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
     Route::post('/slider/update/{id}',[SliderController::class,'update'])->name('admin.slider.update');
     Route::get('/slider/edit/{id}',[SliderController::class,'edit'])->name('admin.slider.edit');
 
+    Route::get('/order',[\App\Http\Controllers\Backend\OrderController::class,'index'])->name('admin.order');
+    Route::get('/orderdetail/{id}',[\App\Http\Controllers\Backend\OrderController::class,'show'])->name('admin.orderdetail');
+
 
 
 });
