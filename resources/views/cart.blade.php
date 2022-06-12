@@ -29,7 +29,7 @@
 
                         @foreach($data as $rs)
 
-                            {{ $toplam=$toplam+($rs->variantsprice*$rs->quantity)}}
+                            @php $toplam=$toplam+($rs->variantsprice*$rs->quantity);  @endphp
 
                             <tr>
                                 <td><img width="50" src="{{$rs->image}}" alt=""></td>

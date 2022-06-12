@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Addres;
 use App\Models\Cart;
+use App\Models\Country;
+use App\Models\Zone;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -86,6 +88,7 @@ class CartController extends Controller
         {
             $data=DB::select("SELECT
 	products.model,
+	products.id,
 	products.price,
 	products.name,
 	products.image,
@@ -222,6 +225,7 @@ WHERE
             $id=Auth::id();
             $data=DB::select("SELECT
 	products.model,
+	products.id,
 	products.price,
 	products.name,
 	products.image,
@@ -307,8 +311,14 @@ WHERE
 
             }
             $adres=Addres::get();
+            $country=Country::all();
+            $zone=Zone::where('country_id','=','81')->get();
 
-            return view('checkout',['data'=>$data,'adres'=>$adres]);
+            session()->put('cart', $data);
+
+
+
+            return view('checkout',['data'=>$data,'adres'=>$adres,'country'=>$country,'zone'=>$zone]);
         }
         else
         {

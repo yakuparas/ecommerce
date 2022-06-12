@@ -45,6 +45,7 @@ Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
     Route::post('/createadres',[HomeController::class,'createadres'])->name('createadres');
     Route::post('/editadress',[HomeController::class,'editadress'])->name('editadress');
     Route::get('/destroyadress/{id}',[HomeController::class,'destroyadress'])->name('destroyadress');
+    Route::post('/orderdetail',[HomeController::class,'orderdetail'])->name('orderdetail');
 
 });
 

@@ -18,51 +18,50 @@
                                 <div class="checkout-title">
                                     <h3>Fatura Detayı</h3>
                                 </div>
+                                <form action="{{ route('paypal.charge') }}" method="post">
                                 <div class="row check-out">
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">First Name</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Last Name</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Phone</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Email Address</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Country</div>
-                                        <select>
-                                            <option>India</option>
-                                            <option>South Africa</option>
-                                            <option>United State</option>
-                                            <option>Australia</option>
+                                        <div class="field-label">Adres Adı</div>
+                                        <select name="aname" id="aname">
+                                            @foreach($adres as $rs)
+                                                <option value="{{$rs->id}}">{{$rs->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
+                                    <div class="form-group col-md-12 col-sm-126 col-xs-12">
+                                        <div class="field-label">Adres</div>
+                                        <input type="text" disabled name="adress" id="adress" value="{{$adres[0]['adress']}}" placeholder="">
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-sm-126 col-xs-12">
+                                        <div class="field-label">Post Code</div>
+                                        <input type="text" disabled name="postcode" id="postcode" value="{{$adres[0]['postcode']}}" placeholder="">
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-sm-126 col-xs-12">
+                                        <div class="field-label">City</div>
+                                        <input type="text" disabled name="city" id="city" value="{{$adres[0]['city']}}" placeholder="">
+                                    </div>
+
+
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Address</div>
-                                        <input type="text" name="field-name" value="" placeholder="Street address">
+                                        <div class="field-label">Country</div>
+                                        <select disabled name="country" class="form-control" id="country">
+                                            @foreach($country as $rs)
+
+                                                <option {{ ($rs->id) == 81 ? 'selected' : '' }} value="{{$rs->id}}">{{$rs->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Town/City</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                        <div class="field-label">State / County</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                        <div class="field-label">Postal Code</div>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input type="checkbox" name="shipping-option" id="account-option"> &ensp;
-                                        <label for="account-option">Create An Account?</label>
+                                        <div class="field-label">Bölge</div>
+                                        <select disabled name="zone" class="form-control" id="zone">
+                                            @foreach($zone as $rs)
+
+                                                <option {{ ($rs->id) == 81 ? 'selected' : '' }} value="{{$rs->id}}">{{$rs->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -72,61 +71,45 @@
                                         <div class="title-box">
                                             <div>Product <span>Total</span></div>
                                         </div>
+                                        @php
+                                            $toplam=0;
+                                        @endphp
                                         <ul class="qty">
-                                            <li>Pink Slim Shirt × 1 <span>$25.10</span></li>
-                                            <li>SLim Fit Jeans × 1 <span>$555.00</span></li>
+                                            @foreach($data as $rs)
+
+                                                @php $toplam=$toplam+($rs->variantsprice*$rs->quantity);  @endphp
+                                            <li>{{$rs->name}}<br>
+                                                @isset($rs->variants)
+                                                    @foreach($rs->variants as $v)
+                                                        | {{$v->oname}}
+                                                    @endforeach
+                                                @endisset × {{$rs->quantity}} <span>{{ number_format($rs->variantsprice, 2, ',', '.')}} €</span></li>
+
+                                            @endforeach
                                         </ul>
-                                        <ul class="sub-total">
-                                            <li>Subtotal <span class="count">$380.10</span></li>
-                                            <li>Shipping
-                                                <div class="shipping">
-                                                    <div class="shopping-option">
-                                                        <input type="checkbox" name="free-shipping" id="free-shipping">
-                                                        <label for="free-shipping">Free Shipping</label>
-                                                    </div>
-                                                    <div class="shopping-option">
-                                                        <input type="checkbox" name="local-pickup" id="local-pickup">
-                                                        <label for="local-pickup">Local Pickup</label>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+
                                         <ul class="total">
-                                            <li>Total <span class="count">$620.00</span></li>
+                                            <li>Total <span class="count">{{number_format($toplam, 2, ',', '.')}} €</span></li>
                                         </ul>
+
                                     </div>
                                     <div class="payment-box">
                                         <div class="upper-box">
                                             <div class="payment-options">
                                                 <ul>
-                                                    <li>
-                                                        <div class="radio-option">
-                                                            <input type="radio" name="payment-group" id="payment-1" checked="checked">
-                                                            <label for="payment-1">Check Payments<span class="small-text">Please send a check to Store
-                                                                    Name, Store Street, Store Town, Store State /
-                                                                    County, Store Postcode.</span></label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="radio-option">
-                                                            <input type="radio" name="payment-group" id="payment-2">
-                                                            <label for="payment-2">Cash On Delivery<span class="small-text">Please send a check to Store
-                                                                    Name, Store Street, Store Town, Store State /
-                                                                    County, Store Postcode.</span></label>
-                                                        </div>
-                                                    </li>
+
                                                     <li>
                                                         <div class="radio-option paypal">
-                                                            <input type="radio" name="payment-group" id="payment-3">
-                                                            <label for="payment-3">PayPal<span class="image"><img src="../assets/images/paypal.png" alt=""></span></label>
+                                                            <input type="radio" checked name="payment-group" id="payment-3">
+                                                            <label for="payment-3">PayPal<span class="image"><img src="/frontend/assets/images/paypal.png" alt=""></span></label>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="text-end">
-                                            <form action="{{ route('paypal.charge') }}" method="post">
-                                                <input type="text" value="500" name="amount" />
+
+                                                <input type="hidden"  value="{{number_format($toplam, 2, '.', '');}}" name="amount" />
                                                 {{ csrf_field() }}
                                                 <input type="submit" class="btn-solid btn" name="submit" value="Pay Now">
                                             </form>
@@ -143,4 +126,37 @@
     </section>
     <!-- section end -->
 
+@endsection
+
+@section('js')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('#aname').on('change', function() {
+
+
+            $.ajax({
+                type: 'POST',
+                url: "{{route('editadress')}}",
+                data:{id:this.value},
+
+                success: function(results) {
+
+                    if (results.success === true) {
+                        $('#adress').val(results.adress);
+                        $('#city').val(results.city);
+                        $('#postcode').val(results.postcode)
+
+                        $("#country option[value=" + results.country_id + "]").prop("selected",true);
+                        $("#zone option[value=" + results.zone_id + "]").prop("selected",true);
+
+
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

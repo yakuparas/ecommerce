@@ -9,6 +9,8 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\gallery;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\settings;
 use App\Models\slider;
@@ -23,8 +25,6 @@ class HomeController extends Controller
 {
 
 
-
-
     public static function getsettings()
     {
         return settings::first();
@@ -32,68 +32,63 @@ class HomeController extends Controller
 
     public static function CatList()
     {
-        return $catList=Category::where('parent_id','=',0)->with('children')->get();
+        return $catList = Category::where('parent_id', '=', 0)->with('children')->get();
     }
 
     public static function lastmodal()
     {
-        return  $lastmodal=Product::limit(4)->orderByDesc('id')->get();
+        return $lastmodal = Product::limit(4)->orderByDesc('id')->get();
     }
 
 
     public static function getCart()
     {
-        if (auth()->check())
-        {
-            return $cart=Cart::where('user_id',auth()->id())->get();
-        }else
-        {
-            return $cart=Cart::where('session_id',session()->getId())->get();
+        if (auth()->check()) {
+            return $cart = Cart::where('user_id', auth()->id())->get();
+        } else {
+            return $cart = Cart::where('session_id', session()->getId())->get();
         }
-
 
 
     }
 
 
+    public function index()
+    {
+
+        $slide = slider::get();
+        $last = Product::limit(6)->orderByDesc('id')->get();
+
+        return view('index', ['slide' => $slide, 'last' => $last]);
+    }
 
 
+    public function login()
+    {
+        return view('login');
+    }
 
-    public  function index()
-     {
+    public function checkLogin(Request $request)
+    {
 
-         $slide=slider::get();
-         $last=Product::limit(6)->orderByDesc('id')->get();
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
-         return view('index',['slide'=>$slide,'last'=>$last]);
-     }
-
-
-     public function  login()
-     {
-         return view('login');
-     }
-
-     public function checkLogin(Request $request)
-     {
-
-         $request->validate([
-             'email' => 'required',
-             'password' => 'required',
-         ]);
-
-         $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
 
 
-         if (Auth::attempt($credentials)) {
-             return redirect()->route('index')->with('success','Giriş Yaptınız');
-         }
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('index')->with('success', 'Giriş Yaptınız');
+        }
 
-         return redirect()->route('login')->with('error','Kullanıcı Adı veya Şifre Yanlış');
+        return redirect()->route('login')->with('error', 'Kullanıcı Adı veya Şifre Yanlış');
 
-     }
+    }
 
-    public function logout() {
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
 
@@ -102,7 +97,7 @@ class HomeController extends Controller
 
     public function product($id)
     {
-        $data=Product::find($id);
+        $data = Product::find($id);
         dd($data);
 
 
@@ -110,20 +105,20 @@ class HomeController extends Controller
 
     public function categoryproducts($id)
     {
-        $data=Product::where('category_id',$id)->get();
+        $data = Product::where('category_id', $id)->get();
 
 
-        $cat=Category::find($id);
-       return view('category',['data'=>$data,'cat'=>$cat]);
+        $cat = Category::find($id);
+        return view('category', ['data' => $data, 'cat' => $cat]);
     }
 
-    public function productdetail ($id)
+    public function productdetail($id)
     {
         $data = Product::find($id);
-        $last=Product::limit(6)->orderByDesc('id')->get();
-        $imagelist = gallery::where('pid',$id)->get();
+        $last = Product::limit(6)->orderByDesc('id')->get();
+        $imagelist = gallery::where('pid', $id)->get();
 
-        $variants=DB::select("SELECT DISTINCT
+        $variants = DB::select("SELECT DISTINCT
 	product_variants.variant_id,
 	variants.name
 FROM
@@ -135,7 +130,7 @@ FROM
 WHERE
 	product_variants.product_id = $id");
 
-        $options=DB::select("SELECT DISTINCT
+        $options = DB::select("SELECT DISTINCT
 	variant_options.variants_id,
 	variant_options.name,
 	variant_options.image,
@@ -155,25 +150,22 @@ WHERE
 	product_variants.product_id = $id");
 
 
-
-
-
-       return view('productdetail',['data'=>$data,'imagelist'=>$imagelist,'last'=>$last,'variants'=>$variants,'options'=>$options]);
+        return view('productdetail', ['data' => $data, 'imagelist' => $imagelist, 'last' => $last, 'variants' => $variants, 'options' => $options]);
 
     }
 
 
     public function profile()
     {
-        $country=Country::all();
-        $zone=Zone::where('country_id','=','81')->get();
+        $country = Country::all();
+        $zone = Zone::where('country_id', '=', '81')->get();
 
-        $adres=Addres::get();
+        $adres = Addres::get();
+
+        $order = Order::where('user_id', Auth::id())->get();
 
 
-
-
-        return view('account',['country'=>$country,'zone'=>$zone,'adres'=>$adres]);
+        return view('account', ['country' => $country, 'zone' => $zone, 'adres' => $adres, 'order' => $order]);
     }
 
     public function profileupdate(Request $request)
@@ -181,25 +173,25 @@ WHERE
 
         $id = Auth::user()->id;
         $user = User::find($id);
-        $user->email=$request->email;
-        $user->name=$request->name;
-        $user->phone=$request->phone;
-        if($request->password!=null) {
-            $user->password=bcrypt($request->password);
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        if ($request->password != null) {
+            $user->password = bcrypt($request->password);
         }
         $user->save();
     }
 
     public function createadres(Request $request)
     {
-        $adress=new Addres();
-        $adress->user_id=Auth::id();
-        $adress->name=$request->name;
-        $adress->adress=$request->address;
-        $adress->city=$request->city;
-        $adress->postcode=$request->postcode;
-        $adress->country_id=$request->country;
-        $adress->zone_id=$request->zone;
+        $adress = new Addres();
+        $adress->user_id = Auth::id();
+        $adress->name = $request->name;
+        $adress->adress = $request->address;
+        $adress->city = $request->city;
+        $adress->postcode = $request->postcode;
+        $adress->country_id = $request->country;
+        $adress->zone_id = $request->zone;
         $adress->save();
 
 
@@ -209,7 +201,7 @@ WHERE
 
     public function editadress(Request $request)
     {
-        $adres=Addres::where('id','=',$request->id)->get();
+        $adres = Addres::where('id', '=', $request->id)->get();
         $success = true;
         return response()->json([
             'success' => $success,
@@ -222,13 +214,11 @@ WHERE
         ]);
     }
 
-    public function destroyadress(Request $request,$id)
+    public function destroyadress(Request $request, $id)
     {
         $del = Addres::where('id', '=', $id)->delete();
 
-        if ($del)
-        {
-
+        if ($del) {
 
 
             return redirect()->route('profile');
@@ -238,8 +228,17 @@ WHERE
 
     }
 
+    public function orderdetail(Request $request)
+    {
 
+        $order=OrderProduct::where('order_id',$request->id)->get();
+        $success = true;
+        return response()->json([
+            'success' => $success,
+            'data'=>$order
+        ]);
 
+    }
 
 
 }
