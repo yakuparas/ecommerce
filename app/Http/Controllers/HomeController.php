@@ -241,4 +241,10 @@ WHERE
     }
 
 
+    public function zaunplanner(Request $request)
+    {
+        return view('zaunplanner');
+    }
+
+
 }

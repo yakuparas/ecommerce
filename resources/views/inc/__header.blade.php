@@ -78,6 +78,7 @@
                                         </li>
 
                                     @endforeach
+                                    <li><a href="{{route('zaunplanner')}}">Zauplanner</li>
 
 
                                 </ul>
