@@ -49,7 +49,7 @@
                                 @foreach($variants as $rs)
                                     <h6 class="product-title size-text">{{$rs->name}}</h6>
                                     <div class="size-box">
-                                        <ul class="selected">
+                                        <ul>
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
                                                     <li><a href="javascript:void(0)">{{$r->name}}</a></li>
