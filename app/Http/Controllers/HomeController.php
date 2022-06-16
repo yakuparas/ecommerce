@@ -253,6 +253,8 @@ WHERE
 
         $data = Product::find($id);
         $imagelist = gallery::where('pid', $id)->get();
+        $baba=Product::where('id','=','12')->get();
+        dd($baba);
 
         $variants = DB::select("SELECT DISTINCT
 	product_variants.variant_id,
