@@ -76,7 +76,7 @@
 
                                     @foreach($baba as $rs)
                                     <div class="img-box">
-                                        <a href="#"><img src="{{rs->image}}" width="100" alt="" class="img-fluid blur-up lazyloaded"></a>
+                                        <a href="#"><img src="{{$rs->image}}" width="100" alt="" class="img-fluid blur-up lazyloaded"></a>
                                     </div>
                                     @endforeach
 
