@@ -40,6 +40,12 @@
 
                             <h2>{{$data->name}}</h2>
 
+                            Çit Uzunluğu
+                            <input type="text" name="uzunluk" id="uzunluk">
+
+                            Köşe Sayısı
+                            <input type="text" name="kose" id="kose">
+
 
 
 
@@ -86,6 +92,7 @@
 
 @section('js')
     <script>
+
         $('.size-box ul li').on('click', function (e) {
             $(".size-box ul li").removeClass("active");
             $('#selectSize').removeClass('cartMove');
