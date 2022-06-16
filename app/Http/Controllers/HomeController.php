@@ -243,7 +243,50 @@ WHERE
 
     public function zaunplanner(Request $request)
     {
-        return view('zaunplanner');
+        $data = Product::where('customize','=','1')->get();
+
+        return view('zaunplanner',['data'=>$data]);
+    }
+
+    public function step($id)
+    {
+
+        $data = Product::find($id);
+        $imagelist = gallery::where('pid', $id)->get();
+
+        $variants = DB::select("SELECT DISTINCT
+	product_variants.variant_id,
+	variants.name
+FROM
+	product_variants
+	INNER JOIN
+	variants
+	ON
+		product_variants.variant_id = variants.id
+WHERE
+	product_variants.product_id = $id");
+
+        $options = DB::select("SELECT DISTINCT
+	variant_options.variants_id,
+	variant_options.name,
+	variant_options.image,
+	product_variants.sku,
+	product_variants.quantity,
+	product_variants.price_prefix,
+	product_variants.price,
+	variant_options.id AS oid,
+	product_variants.id as pvid
+FROM
+	product_variants
+	INNER JOIN
+	variant_options
+	ON
+		product_variants.variant_options_id = variant_options.id
+WHERE
+	product_variants.product_id = $id");
+
+
+        return view('step', ['data' => $data, 'imagelist' => $imagelist,'variants' => $variants, 'options' => $options]);
     }
 
 

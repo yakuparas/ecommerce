@@ -9,9 +9,6 @@
 @section('description',$setting->description)
 @section('content')
 
-
-
-
     <!-- section start -->
     <section class="section-b-space">
         <div class="collection-wrapper">
