@@ -83,3 +83,14 @@
     </section>
     <!-- Section ends -->
 @endsection
+
+@section('js')
+    <script>
+        $('.size-box ul li').on('click', function (e) {
+            $(".size-box ul li").removeClass("active");
+            $('#selectSize').removeClass('cartMove');
+            $(this).addClass("active");
+            $(this).parent().addClass('selected');
+        });
+    </script>
+@endsection
