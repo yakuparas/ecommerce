@@ -94,7 +94,7 @@
 @section('js')
     <script>
 
-        $('#v-0 ul li,').on('click', function (e) {
+        $('#v-0 ul li').on('click', function (e) {
             $("#v-0 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
