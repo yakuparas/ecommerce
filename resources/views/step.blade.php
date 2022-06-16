@@ -95,7 +95,7 @@
     <script>
 
         $('#v-0,#v-1 ul li').on('click', function (e) {
-            $(".size-box ul li").removeClass("active");
+            $("#v-0,#v-1 ul li").removeClass("active");
             $('#selectSize').removeClass('cartMove');
             $(this).addClass("active");
             $(this).parent().addClass('selected');
