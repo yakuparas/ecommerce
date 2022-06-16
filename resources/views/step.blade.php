@@ -70,13 +70,15 @@
                                 <input type="hidden" name="pvariant" id="pvariant">
                             @endif
 
+                            <h6 class="product-title">Baba</h6>
 
                             <div class="bundle">
                                 <div class="bundle_img">
 
                                     @foreach($baba as $rs)
                                     <div class="img-box">
-                                        <a href="#"><img src="{{$rs->image}}" width="100" alt="" class="img-fluid blur-up lazyloaded"></a>
+                                        <a href="#"><img style="margin-right: 5px !important;" src="{{$rs->image}}" width="100" alt="" class="img-fluid blur-up lazyloaded"></a>
+                                        {{$rs->name}}
                                     </div>
                                     @endforeach
 
