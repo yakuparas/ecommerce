@@ -40,25 +40,30 @@
 
                             <h2>{{$data->name}}</h2>
 
-                            <div id="selectSize" class="addeffect-section product-description border-product">
+
+
+
+
 
                             @if(count($variants)>0)
                                 @foreach($variants as $rs)
-                                        <h6 class="error-message">{{$rs->name}}</h6>
-                                        <div class="size-box">
-                                            <ul>
+                                    <h6 class="product-title size-text">{{$rs->name}}</h6>
+                                    <div class="size-box">
+                                        <ul class="selected">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                        <li><a href="javascript:void(0)">{{$r->name}}</a></li>
+                                                    <li class="active"><a href="javascript:void(0)">{{$r->name}}</a></li>
                                             @endif
+
                                         @endforeach
-                                            </ul>
-                                        </div>
+                                        </ul>
+                                    </div>
+
                                 @endforeach
                                 <input type="hidden" name="pvariant" id="pvariant">
                             @endif
 
-                            </div>
+
 
 
 

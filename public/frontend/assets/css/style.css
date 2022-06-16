@@ -20266,8 +20266,8 @@ header.stickycls {
 }
 
 .product-right .size-box ul li {
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 140px;
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;
