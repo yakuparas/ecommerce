@@ -55,7 +55,7 @@
                                 @php $i=0; @endphp
                                 @foreach($variants as $rs)
                                     <h6 class="product-title size-text">{{$rs->name}}</h6>
-                                    <div class="size-box-{{$i++}}">
+                                    <div id="v-{{$i++}}" class="size-box">
                                         <ul>
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
@@ -94,7 +94,7 @@
 @section('js')
     <script>
 
-        $('.size-box ul li').on('click', function (e) {
+        $('.v-0,.v-1 ul li').on('click', function (e) {
             $(".size-box ul li").removeClass("active");
             $('#selectSize').removeClass('cartMove');
             $(this).addClass("active");
