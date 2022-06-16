@@ -88,17 +88,52 @@
                             </div>
 
 
-                            <div class="bundle">
-                                <div class="bundle_img">
+                            <div class="product-4 product-m no-arrow">
 
-                                    @foreach($kapi as $rs)
-                                        <div class="img-box">
-                                            <a href="#"><img style="margin-right: 5px !important;" src="{{$rs->image}}" width="100" alt="" class="img-fluid blur-up lazyloaded"></a>
-                                            <input type="radio" name="baba" id="baba">{{$rs->name}}
+                                @foreach($kapi as $rs)
+
+
+                                <div class="product-box">
+                                    <div class="img-wrapper">
+                                        <div class="front">
+                                            <a href="product-page(no-sidebar).html"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                         </div>
-                                    @endforeach
+                                        <div class="back">
+                                            <a href="product-page(no-sidebar).html"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                        </div>
+                                        <div class="cart-info cart-wrap">
+                                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
+                                                <i class="ti-shopping-cart"></i>
+                                            </button>
+                                            <a href="javascript:void(0)" title="Add to Wishlist">
+                                                <i class="ti-heart" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View">
+                                                <i class="ti-search" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="compare.html" title="Compare">
+                                                <i class="ti-reload" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-detail">
 
+                                        <a href="product-page(no-sidebar).html">
+                                            <h6>{{$rs->name}}</h6>
+                                        </a>
+                                    
+                                    </div>
                                 </div>
+
+
+                                @endforeach
+
+
+                            </div>
+
+
+
+
                                 <select class="form-control">
                                     <option value="">ss</option>
                                     <option value="">ss</option>
