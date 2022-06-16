@@ -78,8 +78,8 @@
                                         </li>
 
                                     @endforeach
-                                    <li><a href="{{route('zaunplanner')}}">Zauplanner</li>
 
+                                    <li><a href="{{route('zaunplanner')}}">Zauplanner</a></li>
 
                                 </ul>
                             </nav>
