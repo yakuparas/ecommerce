@@ -254,6 +254,7 @@ WHERE
         $data = Product::find($id);
         $imagelist = gallery::where('pid', $id)->get();
         $baba=Product::where('category_id','=','12')->get();
+        $kapi=Product::where('category_id','=','11')->get();
 
 
         $variants = DB::select("SELECT DISTINCT
@@ -288,7 +289,7 @@ WHERE
 	product_variants.product_id = $id");
 
 
-        return view('step', ['data' => $data,'baba'=>$baba, 'imagelist' => $imagelist,'variants' => $variants, 'options' => $options]);
+        return view('step', ['data' => $data,'baba'=>$baba,'kapi'=>$kapi, 'imagelist' => $imagelist,'variants' => $variants, 'options' => $options]);
     }
 
 
