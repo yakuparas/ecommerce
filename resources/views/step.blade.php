@@ -52,7 +52,7 @@
                                         <ul class="selected">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li class="active"><a href="javascript:void(0)">{{$r->name}}</a></li>
+                                                    <li><a href="javascript:void(0)">{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
