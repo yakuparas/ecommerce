@@ -78,7 +78,7 @@
                                     @foreach($baba as $rs)
                                     <div class="img-box">
                                         <a href="#"><img style="margin-right: 5px !important;" src="{{$rs->image}}" width="100" alt="" class="img-fluid blur-up lazyloaded"></a>
-                                        {{$rs->name}}
+                                        <input type="radio" name="baba" id="baba">{{$rs->name}}
                                     </div>
                                     @endforeach
 
