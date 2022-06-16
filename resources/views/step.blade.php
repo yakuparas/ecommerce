@@ -52,9 +52,10 @@
 
 
                             @if(count($variants)>0)
+                                @php $i=0; @endphp
                                 @foreach($variants as $rs)
                                     <h6 class="product-title size-text">{{$rs->name}}</h6>
-                                    <div class="size-box">
+                                    <div class="size-box-{{$i++}}">
                                         <ul>
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
