@@ -38,22 +38,38 @@
                     <div class="col-lg-6 rtl-text">
                         <div class="product-right">
 
-                            <h2>Women Pink Shirt</h2>
+                            <h2>{{$data->name}}</h2>
 
                             <div id="selectSize" class="addeffect-section product-description border-product">
 
-                                <h6 class="error-message">please select size</h6>
-                                <div class="size-box">
-                                    <ul>
-                                        <li><a href="javascript:void(0)">s</a></li>
-                                        <li><a href="javascript:void(0)">m</a></li>
-                                        <li><a href="javascript:void(0)">l</a></li>
-                                        <li><a href="javascript:void(0)">xl</a></li>
-                                    </ul>
-                                </div>
+                            @if(count($variants)>0)
+                                @foreach($variants as $rs)
+                                        <h6 class="error-message">{{$rs->name}}</h6>
+                                        <div class="size-box">
+                                            <ul>
+                                        @foreach($options as $r)
+                                            @if($rs->variant_id==$r->variants_id)
+                                                        <li><a href="javascript:void(0)">{{$r->name}}</a></li>
+                                            @endif
+                                        @endforeach
+                                            </ul>
+                                        </div>
+                                @endforeach
+                                <input type="hidden" name="pvariant" id="pvariant">
+                            @endif
 
                             </div>
-                     
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
