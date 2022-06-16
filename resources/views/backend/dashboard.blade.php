@@ -9,8 +9,8 @@
 
       <div class="section-body">
 
-        asas
+      
       </div>
     </section>
-  </div>   
+  </div>
 @endsection
