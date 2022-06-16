@@ -91,16 +91,14 @@
                             <div class="product-4 product-m">
 
                                 @foreach($kapi as $rs)
-
+                                    {{$rs->image}}
 
                                 <div class="product-box">
                                     <div class="img-wrapper">
                                         <div class="front">
-                                            <a href="product-page(no-sidebar).html"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            <img src="{{$rs->image}}" class="img-fluid blur-up lazyload" alt=""></a>
                                         </div>
-                                        <div class="back">
-                                            <a href="product-page(no-sidebar).html"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                        </div>
+
 
                                     </div>
                                     <div class="product-detail">
