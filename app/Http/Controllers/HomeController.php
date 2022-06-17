@@ -323,7 +323,7 @@ WHERE
             $output.="<option value='$rs->pvid'>$rs->voname</option>";
         }
 
-        $output.='</select><input type="hidden" name="variant_id[]" value="$pvid">';
+        $output.='</select><input type="hidden" name="variant_id[]" value="{{$rs->pvid}}">';
 
         echo $output;
 
