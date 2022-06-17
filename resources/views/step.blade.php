@@ -121,9 +121,7 @@
 
 
 
-                                <select id="kapiyukseklik" class="form-control">
-
-                                </select>
+                            <div class="bundle" id="kapiyukseklik">
 
 
                             </div>
@@ -172,7 +170,16 @@
             var id = id;
             var url = "{{ route('variants.fetch', ":id") }}";
             url = url.replace(':id', id);
-            console.log(url);
+            $.ajax({
+                url:url,
+                success:function(data)
+                {
+
+                    $('#kapiyukseklik').html(data);
+                  
+
+                }
+            })
         }
     </script>
 @endsection

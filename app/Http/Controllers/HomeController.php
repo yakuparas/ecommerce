@@ -15,6 +15,7 @@ use App\Models\Product;
 use App\Models\settings;
 use App\Models\slider;
 use App\Models\User;
+use App\Models\VariantOptions;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -290,6 +291,30 @@ WHERE
 
 
         return view('step', ['data' => $data,'baba'=>$baba,'kapi'=>$kapi, 'imagelist' => $imagelist,'variants' => $variants, 'options' => $options]);
+    }
+
+    function  variantsfetch($id)
+    {
+
+        $vo=VariantOptions::where('product_id',$id)->get();
+
+
+
+
+        $output=' <select class="form-control" name="voptions" id="voptions">';
+
+        foreach($vo as $rs)
+        {
+            $output.="<option value='$rs->id'>$rs->name</option>";
+        }
+
+        $output.='</select><input type="hidden" name="variant_id[]" value="{{$id}}">';
+
+        echo $output;
+
+
+
+
     }
 
 
