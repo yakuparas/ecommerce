@@ -87,6 +87,7 @@
 
                             </div>
 
+                            <h6 class="product-title">Kapı Seçiniz</h6>
 
                             <div class="product-4 product-m">
 
