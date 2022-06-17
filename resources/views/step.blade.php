@@ -168,7 +168,7 @@
         function getir(id)
         {
             var id = id;
-            var url = "{{ route('variants.fetch', ":id") }}";
+            var url = "{{ route('zauplanner.variants.fetch', ":id") }}";
             url = url.replace(':id', id);
             $.ajax({
                 url:url,

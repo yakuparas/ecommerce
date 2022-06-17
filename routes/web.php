@@ -39,6 +39,8 @@ Route::get('/addtocart/{id}',[HomeController::class,'index'])->name('addtocart')
 Route::get('/aa/{id}/{name}',[HomeController::class,'productdetail'])->name('product-detail');
 Route::get('/login',[HomeController::class,'login'])->name('login');
 Route::post('/checkLogin',[HomeController::class,'checkLogin'])->name('checkLogin');
+Route::get('/zauplanner/variants/fetch/{id}',[HomeController::class,'variantsfetch'])->name('zauplanner.variants.fetch');
+
 Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
 {
     Route::get('/logout',[HomeController::class,'logout'])->name('logout');

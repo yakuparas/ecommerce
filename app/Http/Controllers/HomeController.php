@@ -295,7 +295,7 @@ WHERE
 
     function  variantsfetch($id)
     {
-
+       
         $vo=DB::select("SELECT
 	variant_options.name as voname,
 	product_variants.sku,
