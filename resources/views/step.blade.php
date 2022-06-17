@@ -42,11 +42,11 @@
 
                             Çit Uzunluğu
                             <input type="text" name="uzunluk" id="uzunluk">
-
+<hr>
                             Köşe Sayısı
                             <input type="text" name="kose" id="kose">
 
-
+<hr>
 
 
 
@@ -69,7 +69,7 @@
                                 @endforeach
                                 <input type="hidden" name="pvariant" id="pvariant">
                             @endif
-
+<hr>
                             <h6 class="product-title">Baba</h6>
 
                             <div class="bundle">
@@ -86,7 +86,7 @@
 
 
                             </div>
-
+<hr>
                             <h6 class="product-title">Kapı Seçiniz</h6>
 
                             <div class="product-4 product-m">
