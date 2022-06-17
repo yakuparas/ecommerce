@@ -169,7 +169,10 @@
 
         function getir(id)
         {
-            console.log(id);
+            var id = id;
+            var url = "{{ route('variants.fetch', ":id") }}";
+            url = url.replace(':id', id);
+            console.log(url);
         }
     </script>
 @endsection
