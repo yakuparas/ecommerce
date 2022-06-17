@@ -316,7 +316,7 @@ WHERE
 
 
 
-        $output=' <select class="form-control" name="voptions" id="voptions">';
+        $output=' <select class="form-control" name="koptions" id="koptions">';
 
         foreach($vo as $rs)
         {
