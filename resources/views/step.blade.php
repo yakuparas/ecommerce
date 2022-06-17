@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="product-detail">
 
-                                        <a href="product-page(no-sidebar).html">
+                                        <a href="#">
                                             <h6>{{$rs->name}}</h6>
                                         </a>
 
