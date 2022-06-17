@@ -295,7 +295,7 @@ WHERE
 
     function  variantsfetch($id)
     {
-       
+
         $vo=DB::select("SELECT
 	variant_options.name as voname,
 	product_variants.sku,
@@ -323,7 +323,7 @@ WHERE
             $output.="<option value='$rs->pvid'>$rs->voname</option>";
         }
 
-        $output.='</select><input type="hidden" name="variant_id[]" value="{{$pvid}}">';
+        $output.='</select><input type="hidden" name="variant_id[]" value="$pvid">';
 
         echo $output;
 
