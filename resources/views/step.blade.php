@@ -106,6 +106,7 @@
 
                                         <a href="#">
                                             <h6>{{$rs->name}}</h6>
+                                            <input onclick="getir({{$rs->id}})" type="radio" name="kapi" id="kapi">
                                         </a>
 
                                     </div>
@@ -120,12 +121,8 @@
 
 
 
-                                <select class="form-control">
-                                    <option value="">ss</option>
-                                    <option value="">ss</option>
-                                    <option value="">ss</option>
-                                    <option value="">ss</option>
-                                    <option value="">ss</option>
+                                <select id="kapiyukseklik" class="form-control">
+
                                 </select>
 
 
@@ -169,5 +166,10 @@
             $(this).addClass("active");
             $(this).parent().addClass('selected');
         });
+
+        function getir(id)
+        {
+            console.log(id);
+        }
     </script>
 @endsection
