@@ -296,7 +296,22 @@ WHERE
     function  variantsfetch($id)
     {
 
-        $vo=VariantOptions::where('product_id',$id)->get();
+        $vo=DB::select("SELECT
+	variant_options.name as voname,
+	product_variants.sku,
+	product_variants.quantity,
+	product_variants.price_prefix,
+	product_variants.price,
+	product_variants.currency_id,
+	product_variants.id as pvid
+FROM
+	product_variants
+	INNER JOIN
+	variant_options
+	ON
+		product_variants.variant_options_id = variant_options.id
+WHERE
+	product_variants.product_id = $id");
 
 
 
@@ -305,10 +320,10 @@ WHERE
 
         foreach($vo as $rs)
         {
-            $output.="<option value='$rs->id'>$rs->name</option>";
+            $output.="<option value='$rs->pvid'>$rs->voname</option>";
         }
 
-        $output.='</select><input type="hidden" name="variant_id[]" value="{{$id}}">';
+        $output.='</select><input type="hidden" name="variant_id[]" value="{{$pvid}}">';
 
         echo $output;
 

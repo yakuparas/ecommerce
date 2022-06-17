@@ -176,7 +176,7 @@
                 {
 
                     $('#kapiyukseklik').html(data);
-                  
+
 
                 }
             })
