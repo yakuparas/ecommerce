@@ -169,7 +169,9 @@
             $(this).parent().addClass('selected');
 
             var a=$(this).data('pvid');
-            vlist.push(a);
+
+            vlist.indexOf(a) === -1 ? vlist.push(a) : console.log("This item already exists");
+
             $( "#pvariant" ).val(vlist);
 
             console.log(vlist);
@@ -180,7 +182,7 @@
             $(this).addClass("active");
             $(this).parent().addClass('selected');
             var b=$(this).data('pvid');
-            vlist.push(b);
+            vlist.indexOf(b) === -1 ? vlist.push(b) : console.log("This item already exists");
             $( "#pvariant" ).val(vlist);
             console.log(vlist);
         });
