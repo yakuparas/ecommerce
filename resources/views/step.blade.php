@@ -207,10 +207,20 @@
             vlist.indexOf(b) === -1 ? vlist.push(b) : console.log("Bu Öğe Daha Önce Eklenmiş..");
 
             $( "#pvariant" ).val(vlist);
+            let pvid;
+            if($("input[name=pvariant]").val())
+            {
+                pvid=$("input[name=pvariant]").val();
+            }
+            else
+            {
+                pvid=null;
+            }
             let uzunluk=$("input[name=uzunluk]").val();
             let kose=$("input[name=kose]").val();
+            let pid=$("input[name=pid]").val();
 
-            console.log(vlist,uzunluk,kose);
+            console.log(pid,pvid,uzunluk,kose);
 
 
         }
