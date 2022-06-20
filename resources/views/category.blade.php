@@ -54,13 +54,13 @@
                                                     <div class="product-box col-xl-2 col-lg-3 col-sm-4 col-6">
                                                         <div class="img-wrapper">
                                                             <div class="front">
-                                                                <a href="product-page(no-sidebar).html"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                                <a href="{{route('product-detail',['name'=>$rs->slug,'id'=>$rs->id])}}"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
 
                                                             <div class="add-button" data-bs-toggle="modal" data-bs-target="#addtocart">Sepete Ekle</div>
                                                         </div>
                                                         <div class="product-detail">
-                                                            <a href="product-page(no-sidebar).html">
+                                                            <a href="{{route('product-detail',['name'=>$rs->slug,'id'=>$rs->id])}}">
                                                                 <h6>{{$rs->name}}</h6>
                                                             </a>
                                                             <h4>{{$rs->price}}
