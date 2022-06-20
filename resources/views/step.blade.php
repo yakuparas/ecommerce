@@ -68,7 +68,6 @@
 
                                 @endforeach
                                 <input type="hidden" name="pvariant" id="pvariant">
-                                <input type="hidden" name="pid" id="pid" value="{{$data->id}}">
                             @endif
 <hr>
                             <h6 class="product-title">Baba</h6>
