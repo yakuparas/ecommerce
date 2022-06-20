@@ -127,6 +127,13 @@
                             </div>
 
 
+                            <div class="product-buttons">
+                                <input type="hidden" name="pid" id="pid" value="{{$data->id}}">
+                                <span   id="cartEffect" onclick="addcart('  {{$data->id}}  ')"  class="btn btn-solid hover-solid btn-animation">
+                                                <i class="fa fa-shopping-cart me-1" aria-hidden="true"></i> Next</span>
+                            </div>
+
+
 
 
 
@@ -167,7 +174,6 @@
 
 
 
-        console.log($("#price").find(':selected').data('price'));
 
         function getir(id)
         {
