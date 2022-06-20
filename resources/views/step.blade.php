@@ -59,7 +59,7 @@
                                         <ul id="variants-{{$i}}">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li><a   data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
+                                                    <li data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"><a>{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
@@ -189,6 +189,16 @@
             })
         }
 
+
+        $(".variants-1").on("click", function(){
+            var pvid1 = $(this).attr("data-pvid");
+            console.log(pvid1);
+        });
+
+        $(".variants-2").on("click", function(){
+            var pvid2 = $(this).attr("data-pvid");
+            console.log(pvid2);
+        });
 
 
 
