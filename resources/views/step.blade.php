@@ -205,8 +205,12 @@
             let vlist=[];
             vlist.indexOf(a) === -1 ? vlist.push(a) : console.log("Bu Öğe Daha Önce Eklenmiş..");
             vlist.indexOf(b) === -1 ? vlist.push(b) : console.log("Bu Öğe Daha Önce Eklenmiş..");
-            console.log(vlist);
+
             $( "#pvariant" ).val(vlist);
+            let uzunluk=$("input[name=uzunluk]").val();
+            let kose=$("input[name=kose]").val();
+
+            console.log(vlist,uzunluk,kose);
 
 
         }

@@ -226,13 +226,13 @@
         });
         function addcart(x)
         {
-            alert($("input[name=pvariant").val());
+            alert($("input[name=pvariant]").val());
             let quantity = $("input[name=quantity]").val();
             let pid = $("input[name=pid]").val();
-            let pvid
-            if($("input[name=pvariant").val())
+            let pvid;
+            if($("input[name=pvariant]").val())
             {
-               pvid=$("input[name=pvariant").val();
+               pvid=$("input[name=pvariant]").val();
             }
             else
             {
