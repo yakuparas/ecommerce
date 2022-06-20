@@ -59,7 +59,7 @@
                                         <ul>
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li><a  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
+                                                    <li><a id="price"  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
@@ -164,6 +164,10 @@
             $(this).addClass("active");
             $(this).parent().addClass('selected');
         });
+
+
+
+        console.log($("#price").find(':selected').data('price'));
 
         function getir(id)
         {
