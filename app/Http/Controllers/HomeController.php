@@ -249,6 +249,50 @@ WHERE
         return view('zaunplanner',['data'=>$data]);
     }
 
+
+
+    function  variantsfetch($id)
+    {
+
+        $vo=DB::select("SELECT
+	variant_options.name as voname,
+	product_variants.sku,
+	product_variants.quantity,
+	product_variants.price_prefix as prefix,
+	product_variants.price,
+	product_variants.currency_id,
+	product_variants.id as pvid,
+	product_variants.product_id as pid
+FROM
+	product_variants
+	INNER JOIN
+	variant_options
+	ON
+		product_variants.variant_options_id = variant_options.id
+WHERE
+	product_variants.product_id = $id");
+
+
+
+
+        $output=' <select class="form-control" name="koptions" id="koptions">';
+
+        foreach($vo as $rs)
+        {
+            $output.="<option data-pid='$rs->pid' data-pvid='$rs->pvid' data-voname='$rs->voname'  data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
+        }
+
+        $output.='</select>';
+
+        echo $output;
+
+
+
+
+    }
+
+
+
     public function step($id)
     {
 
@@ -291,46 +335,6 @@ WHERE
 
 
         return view('step', ['data' => $data,'baba'=>$baba,'kapi'=>$kapi, 'imagelist' => $imagelist,'variants' => $variants, 'options' => $options]);
-    }
-
-    function  variantsfetch($id)
-    {
-
-        $vo=DB::select("SELECT
-	variant_options.name as voname,
-	product_variants.sku,
-	product_variants.quantity,
-	product_variants.price_prefix as prefix,
-	product_variants.price,
-	product_variants.currency_id,
-	product_variants.id as pvid,
-	product_variants.product_id as pid
-FROM
-	product_variants
-	INNER JOIN
-	variant_options
-	ON
-		product_variants.variant_options_id = variant_options.id
-WHERE
-	product_variants.product_id = $id");
-
-
-
-
-        $output=' <select class="form-control" name="koptions" id="koptions">';
-
-        foreach($vo as $rs)
-        {
-            $output.="<option data-voname='$rs->voname' data-pid='$rs->pid' data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
-        }
-
-        $output.='</select>';
-
-        echo $output;
-
-
-
-
     }
 
     public function step2()
