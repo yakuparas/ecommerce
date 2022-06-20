@@ -189,8 +189,12 @@
             })
         }
 
-        $('ul li a').live("click", function() {
-            alert($(this).text());
+        $(document).ready(function() {
+            $('ul li').live("click", function() {
+                alert($(this).text());
+            });
+
+
         });
 
 
