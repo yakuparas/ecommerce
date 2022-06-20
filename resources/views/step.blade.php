@@ -171,6 +171,8 @@
             var a=$(this).data('pvid');
             vlist.push(a);
             $( "#pvariant" ).val(vlist);
+
+            console.log(vlist);
         });
 
         $('#v-1 ul li').on('click', function (e) {
@@ -180,7 +182,10 @@
             var b=$(this).data('pvid');
             vlist.push(b);
             $( "#pvariant" ).val(vlist);
+            console.log(vlist);
         });
+
+
 
 
 
