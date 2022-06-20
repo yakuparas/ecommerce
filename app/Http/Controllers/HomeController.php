@@ -303,7 +303,7 @@ WHERE
 	product_variants.price_prefix as prefix,
 	product_variants.price,
 	product_variants.currency_id,
-	product_variants.id as pvid
+	product_variants.id as pvid,
 	product_variants.product_id as pid
 FROM
 	product_variants
