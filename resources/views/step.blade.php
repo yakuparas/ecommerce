@@ -189,13 +189,13 @@
             })
         }
 
-        $(document).ready(function() {
+
             $('ul li').live("click", function() {
                 alert($(this).text());
             });
 
 
-        });
+
 
 
 
