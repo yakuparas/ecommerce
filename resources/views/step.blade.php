@@ -59,7 +59,7 @@
                                         <ul>
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li><a id="price"  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
+                                                    <li><a onselect="bul($r->pvid)" id="price"  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
@@ -172,9 +172,6 @@
             $(this).parent().addClass('selected');
         });
 
-
-
-
         function getir(id)
         {
             var id = id;
@@ -191,5 +188,45 @@
                 }
             })
         }
+
+function bul()
+{
+
+    let firstprice=parseFloat($('select:first').children('option:selected').data('price'));
+    let lastprice=parseFloat($('select:last').children('option:selected').data('price'));
+    let newprice=firstprice+lastprice;
+    console.log(newprice);
+    vlist=[];
+    var a=$( "select:first" ).val();
+    vlist.push(a);
+    var b=$( "select:last" ).val();
+    vlist.push(b);
+
+
+    $( "#pvariant" ).val(vlist);
+
+
+
+    let prefix=$(this).children('option:selected').data('prefix');
+    let image=$(this).children('option:selected').data('image');
+
+
+
+
+    if(image!='')
+    {
+        $('#kapak').attr('src', image);
+    }
+
+    if (prefix=="+")
+    {
+        let firstprice=parseFloat($('select:first').children('option:selected').data('price'));
+        let lastprice=parseFloat($('select:last').children('option:selected').data('price'));
+        let newprice=firstprice+lastprice;
+        $( "#price" ).val(newprice);
+        $( ".price-detail" ).html(newprice);
+
+    }
+}
     </script>
 @endsection
