@@ -56,7 +56,7 @@
                                 @foreach($variants as $rs)
                                     <h6 class="product-title size-text">{{$rs->name}}</h6>
                                     <div id="v-{{$i++}}" class="size-box">
-                                        <ul id="variants">
+                                        <ul id="variants-{{$i}}">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
                                                     <li><a   data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
@@ -190,9 +190,7 @@
         }
 
 
-            $('ul li').live("click", function() {
-                alert($(this).text());
-            });
+
 
 
 
