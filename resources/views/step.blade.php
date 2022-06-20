@@ -164,12 +164,15 @@
             $("#v-0 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
+
+            console.log($(this).data('pvid'));
         });
 
         $('#v-1 ul li').on('click', function (e) {
             $("#v-1 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
+            console.log($(this).data('pvid'));
         });
 
         function getir(id)
@@ -190,15 +193,7 @@
         }
 
 
-        $(".variants-1").on("click", function(){
-            var pvid1 = $(this).attr("data-pvid");
-            console.log(pvid1);
-        });
 
-        $(".variants-2").on("click", function(){
-            var pvid2 = $(this).attr("data-pvid");
-            console.log(pvid2);
-        });
 
 
 
