@@ -175,7 +175,7 @@
 
         function getir(x)
         {
-            $(".variants:nth-child(x)").on("click", "a", function(e){
+            $("ul:nth-child(x)").on("click", "a", function(e){
                 e.preventDefault();
                 alert(jQuery(this).text());
             })
