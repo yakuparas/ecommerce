@@ -219,8 +219,10 @@
             let kose=$("input[name=kose]").val();
             let pid=$("input[name=pid]").val();
             let babaid=$("input[name=baba]:checked").data('babaid');
+            let kapiid=$("input[name=koptions]:checked").data('kpid');
+            let kapioptionid=$("input[name=koptions]:checked").data('kpvid');
 
-            console.log(pid,pvid,uzunluk,kose,babaid);
+            console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid);
 
 
         }
