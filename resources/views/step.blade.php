@@ -59,7 +59,7 @@
                                         <ul id="variants">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li><a onclick="getir({{$i}})"  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
+                                                    <li><a   data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
@@ -172,13 +172,24 @@
             $(this).parent().addClass('selected');
         });
 
-
-        function getir(x)
+        function getir(id)
         {
-            $("ul:nth-child(1)").on("click", "a", function(e){
-                e.preventDefault();
-                alert(jQuery(this).text());
+            var id = id;
+            var url = "{{ route('zauplanner.variants.fetch', ":id") }}";
+            url = url.replace(':id', id);
+            $.ajax({
+                url:url,
+                success:function(data)
+                {
+
+                    $('#kapiyukseklik').html(data);
+
+
+                }
             })
         }
+
+
+
     </script>
 @endsection
