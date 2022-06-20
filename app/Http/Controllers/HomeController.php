@@ -321,7 +321,7 @@ WHERE
 
         foreach($vo as $rs)
         {
-            $output.="<option data-pid='$rs->pid' data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
+            $output.="<option data-voname='$rs->voname' data-pid='$rs->pid' data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
         }
 
         $output.='</select>';
