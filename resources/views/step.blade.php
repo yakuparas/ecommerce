@@ -129,6 +129,7 @@
 
                             <div class="product-buttons">
                                 <input type="hidden" name="pid" id="pid" value="{{$data->id}}">
+                                <input type="hidden" name="pvariant" id="pvariant">
                                 <span   id="cartEffect" onclick="addcart('  {{$data->id}}  ')"  class="btn btn-solid hover-solid btn-animation">
                                                 <i class="fa fa-shopping-cart me-1" aria-hidden="true"></i> Next</span>
                             </div>
@@ -159,21 +160,29 @@
 
 @section('js')
     <script>
+        let vlist=[];
+        let a,b;
 
         $('#v-0 ul li').on('click', function (e) {
             $("#v-0 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
 
-            console.log($(this).data('pvid'));
+            var a=$(this).data('pvid');
+            vlist.push(a);
+            $( "#pvariant" ).val(vlist);
         });
 
         $('#v-1 ul li').on('click', function (e) {
             $("#v-1 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
-            console.log($(this).data('pvid'));
+            var b=$(this).data('pvid');
+            vlist.push(b);
+            $( "#pvariant" ).val(vlist);
         });
+
+
 
         function getir(id)
         {
