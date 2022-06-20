@@ -130,6 +130,7 @@
                             <div class="product-buttons">
                                 <input type="hidden" name="pid" id="pid" value="{{$data->id}}">
                                 <input type="hidden" name="pvariant" id="pvariant">
+
                                 <span   id="cartEffect" onclick="addcart('{{$data->id}}')"  class="btn btn-solid hover-solid btn-animation">
                                                 <i class="fa fa-shopping-cart me-1" aria-hidden="true"></i> Next</span>
                             </div>
