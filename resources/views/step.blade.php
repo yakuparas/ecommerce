@@ -168,7 +168,7 @@
             $(this).addClass("active");
             $(this).parent().addClass('selected');
             var a=$(this).data('pvid');
-            vlist.indexOf(a) === -1 ? vlist.push(a) : console.log("This item already exists");
+
 
         });
 
@@ -177,7 +177,7 @@
             $(this).addClass("active");
             $(this).parent().addClass('selected');
             var b=$(this).data('pvid');
-            vlist.indexOf(b) === -1 ? vlist.push(b) : console.log("This item already exists");
+
         });
 
         function getir(id)
@@ -201,6 +201,9 @@
 
         function addcart(x)
         {
+            let vlist=[];
+            vlist.indexOf(a) === -1 ? vlist.push(a) : console.log("Bu Öğe Daha Önce Eklenmiş..");
+            vlist.indexOf(b) === -1 ? vlist.push(b) : console.log("Bu Öğe Daha Önce Eklenmiş..");
             console.log(vlist);
             $( "#pvariant" ).val(vlist);
 
