@@ -218,7 +218,7 @@
             let uzunluk=$("input[name=uzunluk]").val();
             let kose=$("input[name=kose]").val();
             let pid=$("input[name=pid]").val();
-            let babaid=$("#baba").data('babaid');
+            let babaid=$("input[name=baba]:checked").data('babaid');
 
             console.log(pid,pvid,uzunluk,kose,babaid);
 
