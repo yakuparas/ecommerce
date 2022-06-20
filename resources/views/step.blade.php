@@ -167,7 +167,7 @@
             $("#v-0 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
-            var a=$(this).data('pvid');
+            a=$(this).data('pvid');
 
 
         });
@@ -176,7 +176,7 @@
             $("#v-1 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
-            var b=$(this).data('pvid');
+            b=$(this).data('pvid');
 
         });
 
