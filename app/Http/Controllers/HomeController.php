@@ -300,7 +300,7 @@ WHERE
 	variant_options.name as voname,
 	product_variants.sku,
 	product_variants.quantity,
-	product_variants.price_prefix,
+	product_variants.price_prefix as prefix,
 	product_variants.price,
 	product_variants.currency_id,
 	product_variants.id as pvid
@@ -320,7 +320,7 @@ WHERE
 
         foreach($vo as $rs)
         {
-            $output.="<option value='$rs->pvid'>$rs->voname</option>";
+            $output.="<option data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
         }
 
         $output.='</select>';
