@@ -304,6 +304,7 @@ WHERE
 	product_variants.price,
 	product_variants.currency_id,
 	product_variants.id as pvid
+	product_variants.product_id as pid
 FROM
 	product_variants
 	INNER JOIN
@@ -320,7 +321,7 @@ WHERE
 
         foreach($vo as $rs)
         {
-            $output.="<option data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
+            $output.="<option data-pid='$rs->pid' data-price='$rs->price' data-prefix='$rs->prefix' value='$rs->pvid'>$rs->voname</option>";
         }
 
         $output.='</select>';
