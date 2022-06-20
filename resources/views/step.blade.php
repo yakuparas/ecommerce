@@ -167,14 +167,9 @@
             $("#v-0 ul li").removeClass("active");
             $(this).addClass("active");
             $(this).parent().addClass('selected');
-
             var a=$(this).data('pvid');
-
             vlist.indexOf(a) === -1 ? vlist.push(a) : console.log("This item already exists");
 
-            $( "#pvariant" ).val(vlist);
-
-            console.log(vlist);
         });
 
         $('#v-1 ul li').on('click', function (e) {
@@ -183,13 +178,7 @@
             $(this).parent().addClass('selected');
             var b=$(this).data('pvid');
             vlist.indexOf(b) === -1 ? vlist.push(b) : console.log("This item already exists");
-            $( "#pvariant" ).val(vlist);
-            console.log(vlist);
         });
-
-
-
-
 
         function getir(id)
         {
@@ -206,6 +195,13 @@
 
                 }
             })
+        }
+
+
+
+        function addcart(x)
+        {
+            $( "#pvariant" ).val(vlist);
         }
 
 
