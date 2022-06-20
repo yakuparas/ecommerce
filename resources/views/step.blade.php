@@ -56,10 +56,10 @@
                                 @foreach($variants as $rs)
                                     <h6 class="product-title size-text">{{$rs->name}}</h6>
                                     <div id="v-{{$i++}}" class="size-box">
-                                        <ul>
+                                        <ul id="variants">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li><a onselect="bul({{$r->pvid}})" id="price"  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
+                                                    <li><a id="price"  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"  >{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
@@ -189,44 +189,9 @@
             })
         }
 
-function bul()
-{
-
-    let firstprice=parseFloat($('select:first').children('option:selected').data('price'));
-    let lastprice=parseFloat($('select:last').children('option:selected').data('price'));
-    let newprice=firstprice+lastprice;
-    console.log(newprice);
-    vlist=[];
-    var a=$( "select:first" ).val();
-    vlist.push(a);
-    var b=$( "select:last" ).val();
-    vlist.push(b);
-
-
-    $( "#pvariant" ).val(vlist);
-
-
-
-    let prefix=$(this).children('option:selected').data('prefix');
-    let image=$(this).children('option:selected').data('image');
-
-
-
-
-    if(image!='')
-    {
-        $('#kapak').attr('src', image);
-    }
-
-    if (prefix=="+")
-    {
-        let firstprice=parseFloat($('select:first').children('option:selected').data('price'));
-        let lastprice=parseFloat($('select:last').children('option:selected').data('price'));
-        let newprice=firstprice+lastprice;
-        $( "#price" ).val(newprice);
-        $( ".price-detail" ).html(newprice);
-
-    }
-}
+        $("#variants").on("click", "a", function(e){
+            e.preventDefault();
+            alert(jQuery(this).text());
+        })
     </script>
 @endsection
