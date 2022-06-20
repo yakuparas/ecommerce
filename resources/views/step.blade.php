@@ -189,6 +189,10 @@
             })
         }
 
+        $('ul li a').live("click", function() {
+            alert($(this).text());
+        });
+
 
 
     </script>
