@@ -242,11 +242,6 @@
             let kose=$("input[name=kose]").val();
             let pid=$("input[name=pid]").val();
             let babaid=$("input[name=baba]:checked").data('babaid');
-            let kapiid=$("input[name=koptions]:selected").data('kpid');
-            let kapioptionid=$("input[name=koptions]:selected").data('kpvid');
-
-            console.log(kapiid,kapioptionid);
-            console.log("------------------");
             console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid);
 
 
