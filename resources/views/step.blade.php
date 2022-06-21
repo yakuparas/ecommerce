@@ -208,9 +208,10 @@
 
             kapiid=$(this).data('id');
             kapioptionid=$(this).data('pvid');
+            console.log(kapiid,kapioptionid);
         });
 
-        console.log(kapiid,kapioptionid);
+
         function addcart(x)
         {
             let vlist=[];
