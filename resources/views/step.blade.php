@@ -202,8 +202,8 @@
         let kapioptionid;
 
 
-        $(document).ready(function($) {
-            alert('Jquery Working');
+        $(document).on('change','#koptions',function(){
+            alert('change triggered');
         });
 
 
