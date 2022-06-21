@@ -363,6 +363,7 @@ WHERE
 
     public function step3(Request $request)
     {
+        $pvid=$request->session()->get('pvid');
         $bahceuzunlugu=intval($request->session()->get('uzunluk'))*1000; //mm cinsinden
         $kosesayisi=$request->session()->get('kose');
         $citgenisligi=2500; //mm cinsinden
@@ -377,9 +378,10 @@ WHERE
         echo "<br>";
         echo "Baba Adet :".$babadet;
         echo "<br>";
-        echo $request->session()->get('pvid');
+        echo $pvid;
         echo "<br>";
         echo $request->session()->get('pid');
+
 
 
         $voptions=DB::select("SELECT
@@ -399,12 +401,10 @@ FROM
 	ON
 		product_variants.variant_options_id = variant_options.id
 WHERE
-	product_variants.id IN ( $request->session()->get('pvid'))");
-
-        dd($voptions);
+	product_variants.id IN ($pvid)");
 
 
-
+dd($voptions);
 
 
 
