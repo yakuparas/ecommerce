@@ -415,22 +415,10 @@ WHERE
 	product_variants.id IN ($pvid)");
 
 
-            foreach ($data as $key => $value) {
-
-                echo $key;
-                $total = 0;
-                $subtotal = 1;
-                for ($i=0;$i<count($voptions);$i++)
-                {
-                    $value->variants = $voptions[$i];
-                }
-
-
-            }
 
 
 
-dd($data);
+dd($data,$voptions);
 
 
 
