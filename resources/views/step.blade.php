@@ -195,7 +195,7 @@
                     $('#kapiyukseklik').html(data);
                     kapiid= $('#koptions option:selected').data('pid');
                     kapioptionid= $('#koptions option:selected').data('pvid');
-                    kapigenisligi= $('#koptions option:selected').val();
+                    kapigenisligi= $('#koptions option:selected').data('voname');
 
                     console.log(kapiid,kapioptionid,kapigenisligi);
 
@@ -220,7 +220,8 @@
 
             kapiid=$(':selected', this).data('pid');
             kapioptionid=$(':selected', this).data('pvid');
-            kapigenisligi=$(':selected', this).val();
+            kapigenisligi=$(':selected', this).data('voname');
+
 
         });
 
