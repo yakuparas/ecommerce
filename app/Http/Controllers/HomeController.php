@@ -393,7 +393,7 @@ FROM
 	products
 WHERE
 	products.id = $id");
-        dd($data);
+
 
         $voptions=DB::select("SELECT
 	product_variants.variant_options_id,
@@ -414,8 +414,36 @@ FROM
 WHERE
 	product_variants.id IN ($pvid)");
 
+        foreach ($data as $key=>$value) {
 
-dd($voptions);
+            $total=0;
+            $subtotal=1;
+            $value->variants=$voptions[$key];
+            if ($voptions[$key]) {
+                foreach ($voptions[$key] as $v) {
+                    $total += $v->price;
+
+
+                }
+
+
+            }
+            else
+            {
+                $total=$value->price;
+
+            }
+
+            $value->variantsprice=$total;
+        }
+
+
+dd($data);
+
+
+
+
+
 
 
 
