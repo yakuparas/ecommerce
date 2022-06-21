@@ -366,8 +366,8 @@ WHERE
         $bahceuzunlugu=intval($request->session()->get('uzunluk'))*1000; //mm cinsinden
         $kosesayisi=$request->session()->get('kose');
         $citgenisligi=2500; //mm cinsinden
-        $kapigenisligi=$request->session()->get('kapigenisligi');; //mm cinsinden
-        $kapiadet=$request->session()->get('kapiadet');; //mm cinsinden
+        $kapigenisligi=$request->session()->get('kapigenisligi'); //mm cinsinden
+        $kapiadet=$request->session()->get('kapiadet'); //mm cinsinden
 
         $citadet=ceil((($bahceuzunlugu-($kapiadet*$kapigenisligi))/2.5)/1000);
 
@@ -376,6 +376,12 @@ WHERE
         echo "Çit Adet: ".$citadet;
         echo "<br>";
         echo "Baba Adet :".$babadet;
+        echo "<br>";
+        echo $request->session()->get('pvid');
+        echo "<br>";
+        echo $request->session()->get('pid');
+
+
 
 
 
