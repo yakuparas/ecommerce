@@ -491,7 +491,7 @@ WHERE
 
         }
 
-        $comments=$citgenisligi.'mm için '.$kapigenisligi.' mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
+        $comments='Girilen çit uzunluğu '.$citgenisligi.'mm'.$kapigenisligi.' mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
         $comments.='2500 mm yüksekliğinde'.$citadet." adet çit<br>";
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
