@@ -419,13 +419,13 @@ WHERE
         {
             for ($i=0;$i<count($voptions);$i++)
             {
-               print_r($voptions[$i]);
+                $value->variant=$voptions[$key];
             }
-            $value->variant=$voptions[$key];
+
         }
 
 
-exit();
+
 dd($data,$voptions);
 
 
