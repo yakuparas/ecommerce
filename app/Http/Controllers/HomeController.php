@@ -420,6 +420,7 @@ WHERE
                 echo $key;
                 $total = 0;
                 $subtotal = 1;
+                for ($i=0;$i<count($voptions);$i++)
                 $value->variants = $voptions[$key];
 
             }
