@@ -195,7 +195,7 @@
                     $('#kapiyukseklik').html(data);
                     kapiid= $('#koptions option:selected').data('pid');
                     kapioptionid= $('#koptions option:selected').data('pvid');
-                    kapigenisligi= $('#koptions option:selected').data('voname');
+                    kapigenisligi=parseInt( $('#koptions option:selected').data('voname'));
 
                     console.log(kapiid,kapioptionid,kapigenisligi);
 
@@ -220,7 +220,7 @@
 
             kapiid=$(':selected', this).data('pid');
             kapioptionid=$(':selected', this).data('pvid');
-            kapigenisligi=$(':selected', this).data('voname');
+            kapigenisligi=parseInt($(':selected', this).data('voname'));
 
 
         });
@@ -250,6 +250,7 @@
             let kose=$("input[name=kose]").val();
             let pid=$("input[name=pid]").val();
             let babaid=$("input[name=baba]:checked").data('babaid');
+
             console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid,kapigenisligi);
 
 /*
