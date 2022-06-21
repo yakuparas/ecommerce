@@ -253,7 +253,7 @@
                     pvid:pvid,
                     uzunluk:uzunluk,
                     kose:kose,
-                    babid:babid,
+                    babaid:babaid,
                     kapiid:kapiid,
                     kapioptionid:kapioptionid,
 
