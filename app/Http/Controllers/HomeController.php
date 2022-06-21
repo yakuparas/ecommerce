@@ -416,7 +416,7 @@ WHERE
 	product_variants.id IN ($pvid)");
 
 
-        foreach ($data as $key => $value)
+        foreach ($cit as $key => $value)
         {
             for ($i=0;$i<count($voptions);$i++)
             {
