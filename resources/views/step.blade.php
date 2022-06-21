@@ -251,7 +251,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('/zaunplanner/step2') }}",
+                url: "{{route('step2')}}",
                 data:{
                     pid:pid,
                     pvid:pvid,
