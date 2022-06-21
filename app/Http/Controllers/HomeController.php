@@ -415,6 +415,10 @@ WHERE
 	product_variants.id IN ($pvid)");
 
 
+        foreach ($data as $key => $value)
+        {
+            $value->variant=$voptions[$key];
+        }
 
 
 
