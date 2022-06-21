@@ -421,7 +421,7 @@ WHERE
             $value->variants=$voptions[$key];
             if ($voptions[$key]) {
                 foreach ($voptions[$key] as $v) {
-                    $total += $v->price;
+                  //  $total += $v->price;
 
 
                 }
@@ -430,11 +430,11 @@ WHERE
             }
             else
             {
-                $total=$value->price;
+             //   $total=$value->price;
 
             }
 
-            $value->variantsprice=$total;
+           // $value->variantsprice=$total;
         }
 
 
