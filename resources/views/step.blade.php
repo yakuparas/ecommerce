@@ -191,6 +191,10 @@
                 {
 
                     $('#kapiyukseklik').html(data);
+                    kapiid= $('#koptions option:selected').data('pid');
+                    kapioptionid= $('#koptions option:selected').data('pvid');
+
+                    console.log(kapiid,kapioptionid);
 
 
                 }
@@ -201,8 +205,7 @@
         let kapiid;
         let kapioptionid;
 
-        kapiid= $('#koptions option:selected').data('pid');
-        kapioptionid= $('#koptions option:selected').data('pvid');
+
 
 
 
@@ -214,7 +217,7 @@
             console.log(kapiid,kapioptionid);
         });
 
-        console.log(kapiid,kapioptionid);
+
 
 
 
