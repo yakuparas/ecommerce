@@ -348,6 +348,7 @@ WHERE
         $request->session()->put('kapiid',$request->kapiid);
         $request->session()->put('kapioptionid',$request->kapioptionid);
         $request->session()->put('kapigenisligi',$request->kapigenisligi);
+        $request->session()->put('kapiadet',$request->kapiadet);
 
 
 
@@ -366,10 +367,11 @@ WHERE
         $kosesayisi=$request->session()->get('kose');
         $citgenisligi=2500; //mm cinsinden
         $kapigenisligi=$request->session()->get('kapigenisligi');; //mm cinsinden
+        $kapiadet=$request->session()->get('kapiadet');; //mm cinsinden
 
-        $citadet=ceil((($bahceuzunlugu-(7*$kapigenisligi))/2.5)/1000);
+        $citadet=ceil((($bahceuzunlugu-($kapiadet*$kapigenisligi))/2.5)/1000);
 
-        $babadet=($citadet+1)-7;
+        $babadet=($citadet+1)-$kapiadet;
 
         echo "Çit Adet: ".$citadet;
         echo "<br>";

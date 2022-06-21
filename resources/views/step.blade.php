@@ -107,7 +107,6 @@
                                         <a href="#">
                                             <h6>{{$rs->name}}</h6>
                                             <input onclick="getir({{$rs->id}})" type="radio" name="kapi" id="kapi">
-                                            <input  type="number" name="kapiadet{{$rs->id}}" value="1" id="kapiadet">
                                         </a>
 
                                     </div>
@@ -120,7 +119,10 @@
                             </div>
 
 
-
+                            <div class="bundle">
+                                <h6>Kapı Adeti</h6>
+                                <input type="number" name="kapiadet" id="kapiadet" value="1">
+                            </div>
 
                             <div class="bundle" id="kapiyukseklik">
 
@@ -268,6 +270,7 @@
                     kapiid:kapiid,
                     kapioptionid:kapioptionid,
                     kapigenisligi:kapigenisligi,
+                    kapiadet:kapiadet,
 
                 },
 
