@@ -472,8 +472,19 @@ WHERE
 	product_variants.id IN ($kapioptionid)");
 
 
+        foreach ($kapi as $key => $value)
+        {
+            for ($i=0;$i<count($kapioptions);$i++)
+            {
 
-        dd($kapi,$kapioptions);
+                $value->variant=$kapioptions;
+            }
+
+        }
+
+
+
+        dd($cit,$baba,$kapi);
 
 
 
