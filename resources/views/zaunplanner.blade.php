@@ -30,7 +30,7 @@
                                                                 <a href="#"><img src="{{$rs->image}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
 
-                                                            <a class="add-button" href="{{route('step',['id'=>$rs->id])}}">Yapılandır</a>
+                                                            <a class="add-button" href="{{route('step1',['id'=>$rs->id])}}">Yapılandır</a>
 
                                                         </div>
                                                         <div class="product-detail">
