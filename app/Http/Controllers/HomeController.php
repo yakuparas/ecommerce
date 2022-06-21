@@ -361,8 +361,10 @@ WHERE
 
     public function step3(Request $request)
     {
+        $bahceuzunlugu=intval($request->session()->get('uzunluk'))*1000; //mm cinsinden
+        $kosesayisi=$request->session()->get('kose');
+        $citgenisligi=2500; //mm cinsinden
 
-      return $request->session()->get('pid');
 
 
     }

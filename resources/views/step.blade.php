@@ -179,7 +179,9 @@
             b=$(this).data('pvid');
 
         });
-
+        let kapiid;
+        let kapioptionid;
+        let kapigenisligi;
         function getir(id)
         {
             var id = id;
@@ -193,8 +195,9 @@
                     $('#kapiyukseklik').html(data);
                     kapiid= $('#koptions option:selected').data('pid');
                     kapioptionid= $('#koptions option:selected').data('pvid');
+                    kapigenisligi= $('#koptions option:selected').val();
 
-                    console.log(kapiid,kapioptionid);
+                    console.log(kapiid,kapioptionid,kapigenisligi);
 
 
                 }
@@ -202,8 +205,7 @@
         }
 
 
-        let kapiid;
-        let kapioptionid;
+
 
         $.ajaxSetup({
             headers: {
@@ -218,6 +220,7 @@
 
             kapiid=$(':selected', this).data('pid');
             kapioptionid=$(':selected', this).data('pvid');
+            kapigenisligi=$(':selected', this).val();
 
         });
 
@@ -246,9 +249,9 @@
             let kose=$("input[name=kose]").val();
             let pid=$("input[name=pid]").val();
             let babaid=$("input[name=baba]:checked").data('babaid');
-            console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid);
+            console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid,kapigenisligi);
 
-
+/*
             $.ajax({
                 type: 'POST',
                 url: "{{route('step2')}}",
@@ -274,6 +277,7 @@
 
                 }
             });
+            */
 
 
         }
