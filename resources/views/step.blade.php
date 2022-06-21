@@ -267,6 +267,7 @@
                 success: function(results) {
 
                     if (results.success === true) {
+                        window.location.href = "/zaunplanner/step-3";
 
 
                     }
