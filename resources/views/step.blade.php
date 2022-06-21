@@ -107,6 +107,7 @@
                                         <a href="#">
                                             <h6>{{$rs->name}}</h6>
                                             <input onclick="getir({{$rs->id}})" type="radio" name="kapi" id="kapi">
+                                            <input  type="number" name="kapiadet{{$rs->id}}" value="1" id="kapiadet">
                                         </a>
 
                                     </div>
@@ -247,6 +248,7 @@
                 pvid=null;
             }
             let uzunluk=$("input[name=uzunluk]").val();
+            let kapiadet=$("input[name=kapiadet]").val();
             let kose=$("input[name=kose]").val();
             let pid=$("input[name=pid]").val();
             let babaid=$("input[name=baba]:checked").data('babaid');
