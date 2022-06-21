@@ -371,9 +371,9 @@ WHERE
 
         $babadet=($citadet+1)-7;
 
-        echo $citadet;
+        echo "Çit Adet: ".$citadet;
         echo "<br>";
-        echo $babadet;
+        echo "Baba Adet :".$babadet;
 
 
 
