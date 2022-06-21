@@ -207,8 +207,8 @@
 
         $(document).on('change','#koptions',function(){
 
-            kapiid=$(this).data('pid');
-            kapioptionid=$(this).data('pvid');
+            kapiid=$(':selected', this).data('pid');
+            kapioptionid=$(':selected', this).data('pvid');
             console.log(kapiid,kapioptionid);
         });
 
