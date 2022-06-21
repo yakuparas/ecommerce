@@ -245,6 +245,23 @@
             console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid);
 
 
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('/cart/store') }}",
+                data:{quantity:quantity,pid:pid,pvid:pvid},
+
+                success: function(results) {
+                    console.log(results);
+                    if (results.success === true) {
+                        $("#msj").html(results.message);
+
+                    } else {
+                        $("#msj").html(results.message)
+                    }
+                }
+            });
+
+
         }
 
 

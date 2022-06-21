@@ -29,7 +29,7 @@ Route::post('charge', [PaypalPaymentController::class,'charge'])->name("paypal.c
 Route::get('success', [PaypalPaymentController::class,'success'])->name("paypal.success");
 Route::get('error', [PaypalPaymentController::class,'error'])->name("paypal.error");
 Route::get('zaunplanner', [HomeController::class,'zaunplanner'])->name("zaunplanner");
-Route::get('/step/{id}', [HomeController::class,'step'])->name("step");
+Route::get('/step-1/{id}', [HomeController::class,'step1'])->name("step1");
 
 
 Route::get('/',[HomeController::class,'index'])->name('index');

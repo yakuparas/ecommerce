@@ -293,7 +293,7 @@ WHERE
 
 
 
-    public function step($id)
+    public function step1($id)
     {
 
         $data = Product::find($id);
