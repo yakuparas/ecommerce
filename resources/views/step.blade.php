@@ -198,17 +198,19 @@
         }
 
 
-        let kapiid=$('#koptions option:selected').data('id');
-        let kapioptionid=$('#koptions option:selected').data('pvid');
+        let kapiid;
+        let kapioptionid;
 
 
 
 
         $('#koptions').change(function(){
 
-            kapiid=$(this).data('id');
-            kapioptionid=$(this).data('pvid');
+            let kapiid=$('#koptions').children('option:selected').data('pid');
+            let kapioptionid=$('#koptions').children('option:selected').data('pvid');
+
             console.log(kapiid,kapioptionid);
+
         });
 
 
