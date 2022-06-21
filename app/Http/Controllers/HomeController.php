@@ -347,6 +347,7 @@ WHERE
         $request->session()->put('babaid',$request->babaid);
         $request->session()->put('kapiid',$request->kapiid);
         $request->session()->put('kapioptionid',$request->kapioptionid);
+        $request->session()->put('kapigenisligi',$request->kapigenisligi);
 
 
 
@@ -364,6 +365,14 @@ WHERE
         $bahceuzunlugu=intval($request->session()->get('uzunluk'))*1000; //mm cinsinden
         $kosesayisi=$request->session()->get('kose');
         $citgenisligi=2500; //mm cinsinden
+        $kapigenisligi=$request->session()->get('kapigenisligi');; //mm cinsinden
+
+        $citadet=ceil((($bahceuzunlugu-(1*$kapigenisligi))/2.5));
+
+        return $citadet;
+
+
+
 
 
 

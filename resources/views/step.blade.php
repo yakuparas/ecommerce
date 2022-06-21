@@ -253,7 +253,7 @@
 
             console.log(pid,pvid,uzunluk,kose,babaid,kapiid,kapioptionid,kapigenisligi);
 
-/*
+
             $.ajax({
                 type: 'POST',
                 url: "{{route('step2')}}",
@@ -265,6 +265,7 @@
                     babaid:babaid,
                     kapiid:kapiid,
                     kapioptionid:kapioptionid,
+                    kapigenisligi:kapigenisligi,
 
                 },
 
@@ -279,7 +280,7 @@
 
                 }
             });
-            */
+
 
 
         }
