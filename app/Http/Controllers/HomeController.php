@@ -382,6 +382,28 @@ WHERE
         echo $request->session()->get('pid');
 
 
+        $voptions=DB::select("SELECT
+	product_variants.variant_options_id,
+	product_variants.id AS pvid,
+	product_variants.price AS vprice,
+	product_variants.price_prefix AS vprice_prefix,
+	variant_options.name as voname
+FROM
+	products
+	INNER JOIN
+	product_variants
+	ON
+		products.id = product_variants.product_id
+	INNER JOIN
+	variant_options
+	ON
+		product_variants.variant_options_id = variant_options.id
+WHERE
+	product_variants.id IN ( $request->session()->get('pvid'))");
+
+        dd($voptions);
+
+
 
 
 
