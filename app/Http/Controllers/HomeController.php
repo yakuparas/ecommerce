@@ -369,7 +369,9 @@ WHERE
 
         $citadet=ceil((($bahceuzunlugu-(1*$kapigenisligi))/2.5)/1000);
 
-        return $citadet;
+        $babadet=($citadet+1)-7;
+
+        return $babadet;
 
 
 
