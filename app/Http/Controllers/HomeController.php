@@ -418,10 +418,10 @@ WHERE
 
         foreach ($cit as $key => $value)
         {
-            for ($i=0;$i<count($voptions);$i++)
+            for ($i=0;$i<count($citoptions);$i++)
             {
 
-                $value->variant=$voptions;
+                $value->variant=$citoptions;
             }
 
         }
