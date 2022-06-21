@@ -209,10 +209,10 @@
 
             kapiid=$(this).data('pid');
             kapioptionid=$(this).data('pvid');
-
+            console.log(kapiid,kapioptionid);
         });
 
-console.log(kapiid,kapioptionid);
+
 
 
 
