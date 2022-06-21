@@ -491,9 +491,9 @@ WHERE
 
         }
 
-        $comments=$citgenisligi.' için '.$kapigenisligi.'mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
-        $comments.='2500mm yüksekliğinde'.$citadet."adet çit<br>";
-        $comments.=$babadet.'adet baba<br>';
+        $comments=$citgenisligi.'mm için '.$kapigenisligi.' mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
+        $comments.='2500 mm yüksekliğinde'.$citadet." adet çit<br>";
+        $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
         echo $comments;
         dd($cit,$baba,$kapi);
