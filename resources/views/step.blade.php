@@ -202,16 +202,16 @@
         let kapioptionid;
 
 
-
-
-        $('#koptions').change(function(){
-
-            let kapiid=$('#koptions').children('option:selected').data('pid');
-            let kapioptionid=$('#koptions').children('option:selected').data('pvid');
+        $("#koptions").on("change",function(){
+            var kapiid = $("#koptions option:selected").attr('data-pid');
+            var kapioptionid = $("#koptions option:selected").attr('data-pvid');
 
             console.log(kapiid,kapioptionid);
 
         });
+
+
+
 
 
         function addcart(x)
