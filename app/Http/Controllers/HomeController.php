@@ -419,8 +419,8 @@ WHERE
         {
             for ($i=0;$i<count($voptions);$i++)
             {
-                dd((array)$voptions[$i]);
-                $value->variant=$voptions[$i];
+
+                $value->variant=(array)$voptions[$i];
             }
 
         }
