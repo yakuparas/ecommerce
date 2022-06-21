@@ -419,7 +419,8 @@ WHERE
         {
             for ($i=0;$i<count($voptions);$i++)
             {
-                $value->variant+=$voptions[$i];
+                print_r($voptions[$i]);
+                $value->variant=$voptions[$i];
             }
 
         }
