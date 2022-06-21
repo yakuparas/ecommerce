@@ -420,6 +420,7 @@ WHERE
 
         foreach ($cit as $key => $value)
         {
+            $value->adet=$citadet;
             for ($i=0;$i<count($citoptions);$i++)
             {
 
@@ -474,6 +475,7 @@ WHERE
 
         foreach ($kapi as $key => $value)
         {
+            $value->adet=$kapiadet;
             for ($i=0;$i<count($kapioptions);$i++)
             {
 
@@ -482,21 +484,7 @@ WHERE
 
         }
 
-
-
         dd($cit,$baba,$kapi);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
