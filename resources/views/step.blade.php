@@ -198,7 +198,19 @@
         }
 
 
+        let kapiid=$('#koptions option:selected').data('id');
+        let kapioptionid=$('#koptions option:selected').data('pvid');
 
+
+
+
+        $('#koptions').change(function(){
+
+            kapiid=$(this).data('id');
+            kapioptionid=$(this).data('pvid');
+        });
+
+        console.log(kapiid,kapioptionid);
         function addcart(x)
         {
             let vlist=[];
