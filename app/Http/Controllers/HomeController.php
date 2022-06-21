@@ -440,6 +440,13 @@ FROM
 WHERE
 	products.id = $babaid");
 
+        foreach ($baba as $key => $value)
+        {
+            $value->adet=$babadet;
+           
+
+        }
+
 
 
         $kapi=DB::select("SELECT
