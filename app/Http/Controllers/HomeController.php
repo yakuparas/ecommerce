@@ -473,7 +473,7 @@ WHERE
 
 
 
-        dd($kapi,$kapioptionid);
+        dd($kapi,$kapioptions);
 
 
 
