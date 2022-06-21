@@ -247,17 +247,21 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{{ url('/cart/store') }}",
-                data:{quantity:quantity,pid:pid,pvid:pvid},
+                url: "{{ url('/zaunplanner/step2') }}",
+                data:{
+                    pid:pid,
+                    pvid:pvid,
+                    uzunluk:uzunluk,
+                    kose:kose,
+                    babid:babid,
+                    kapiid:kapiid,
+                    kapioptionid:kapioptionid,
+
+                },
+
 
                 success: function(results) {
-                    console.log(results);
-                    if (results.success === true) {
-                        $("#msj").html(results.message);
 
-                    } else {
-                        $("#msj").html(results.message)
-                    }
                 }
             });
 

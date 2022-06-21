@@ -337,8 +337,10 @@ WHERE
         return view('step', ['data' => $data,'baba'=>$baba,'kapi'=>$kapi, 'imagelist' => $imagelist,'variants' => $variants, 'options' => $options]);
     }
 
-    public function step2()
+    public function step2(Request $request)
     {
+
+        return $request->all();
 
     }
 
