@@ -367,7 +367,7 @@ WHERE
         $citgenisligi=2500; //mm cinsinden
         $kapigenisligi=$request->session()->get('kapigenisligi');; //mm cinsinden
 
-        $citadet=ceil((($bahceuzunlugu-(1*$kapigenisligi))/2.5)/1000);
+        $citadet=ceil((($bahceuzunlugu-(7*$kapigenisligi))/2.5)/1000);
 
         $babadet=($citadet+1)-7;
 
