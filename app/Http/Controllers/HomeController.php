@@ -363,6 +363,7 @@ WHERE
 
     public function step3(Request $request)
     {
+        echo $request->session()->get('uzunluk');
         $pvid=$request->session()->get('pvid');
         $babaid=$request->session()->get('babaid');
         $kapiid=$request->session()->get('kapiid');
