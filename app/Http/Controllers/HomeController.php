@@ -340,9 +340,27 @@ WHERE
     public function step2(Request $request)
     {
 
-        return $request->all();
+        $request->session()->put('pid',$request->pid);
+
+        return response()->json([
+            'success' => true,
+            'message' => "Step -2",
+        ]);
+
 
     }
+
+
+    public function step3(Request $request)
+    {
+
+      return $request->session()->get('pid');
+
+
+    }
+
+
+
 
 
 }
