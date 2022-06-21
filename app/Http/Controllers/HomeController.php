@@ -371,7 +371,9 @@ WHERE
 
         $babadet=($citadet+1)-7;
 
-        return $babadet;
+        echo $citadet;
+        echo "<br>";
+        echo $babadet;
 
 
 
