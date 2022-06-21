@@ -414,28 +414,16 @@ FROM
 WHERE
 	product_variants.id IN ($pvid)");
 
-        for ($i=0;$i<count($voptions);$i++) {
+
             foreach ($data as $key => $value) {
 
+                echo $voptions[$key];
                 $total = 0;
                 $subtotal = 1;
                 $value->variants = $voptions[$key];
-                if ($voptions[$key]) {
-                    foreach ($voptions[$key] as $v) {
-                        //  $total += $v->price;
 
-
-                    }
-
-
-                } else {
-                    //   $total=$value->price;
-
-                }
-
-                // $value->variantsprice=$total;
             }
-        }
+
 
 
 dd($data);
