@@ -420,7 +420,7 @@ WHERE
             for ($i=0;$i<count($voptions);$i++)
             {
 
-                $value->variant=array($voptions[$i]);
+                $value->variant=array($voptions);
             }
 
         }
