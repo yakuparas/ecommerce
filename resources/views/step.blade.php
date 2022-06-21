@@ -201,8 +201,10 @@
         let kapiid;
         let kapioptionid;
 
-        kapiid= $('#koptions').children('option:selected').data('pid');
-        kapioptionid= $('#koptions').children('option:selected').data('pvid');
+        kapiid= $('#koptions option:selected').data('pid');
+        kapioptionid= $('#koptions option:selected').data('pvid');
+
+
 
 
         $(document).on('change','#koptions',function(){
@@ -212,6 +214,7 @@
             console.log(kapiid,kapioptionid);
         });
 
+        console.log(kapiid,kapioptionid);
 
 
 
