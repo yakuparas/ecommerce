@@ -267,7 +267,6 @@
                 success: function(results) {
 
                     if (results.success === true) {
-                        window.location.href = {{route('step3')}};
 
 
                     }
