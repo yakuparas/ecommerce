@@ -341,6 +341,14 @@ WHERE
     {
 
         $request->session()->put('pid',$request->pid);
+        $request->session()->put('pvid',$request->pvid);
+        $request->session()->put('uzunluk',$request->uzunluk);
+        $request->session()->put('kose',$request->kose);
+        $request->session()->put('babaid',$request->babaid);
+        $request->session()->put('kapiid',$request->kapiid);
+        $request->session()->put('kapioptionid',$request->kapioptionid);
+
+
 
         return response()->json([
             'success' => true,
