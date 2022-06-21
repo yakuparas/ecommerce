@@ -364,6 +364,7 @@ WHERE
     public function step3(Request $request)
     {
         $pvid=$request->session()->get('pvid');
+        $babaid=$request->session()->get('babaid');
         $id=$request->session()->get('pid');
         $bahceuzunlugu=intval($request->session()->get('uzunluk'))*1000; //mm cinsinden
         $kosesayisi=$request->session()->get('kose');
@@ -384,7 +385,7 @@ WHERE
         echo $id;
 
 
-        $data=DB::select("SELECT
+        $cit=DB::select("SELECT
 	products.name AS pname,
 	products.image AS pimage,
 	products.id AS pid,
@@ -395,7 +396,7 @@ WHERE
 	products.id = $id");
 
 
-        $voptions=DB::select("SELECT
+        $citoptions=DB::select("SELECT
 	product_variants.variant_options_id,
 	product_variants.id AS pvid,
 	product_variants.price AS vprice,
@@ -426,8 +427,21 @@ WHERE
         }
 
 
+        $baba=DB::select("SELECT
+	products.name as babaname,
+	products.image as bimage,
+	products.price as babaprice,
+	products.id as babaid
+FROM
+	products
+WHERE
+	products.id = $babaid");
 
-dd($data,$voptions);
+        dd($baba);
+
+
+
+
 
 
 
