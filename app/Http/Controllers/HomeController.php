@@ -414,7 +414,7 @@ FROM
 WHERE
 	product_variants.id IN ($pvid)");
 
-
+dd($voptions);
             foreach ($data as $key => $value) {
 
                 echo $key;
