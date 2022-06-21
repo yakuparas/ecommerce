@@ -202,13 +202,16 @@
         let kapioptionid;
 
 
-     
+        $('#koptions').change(function() {
+
+alert("aa");
+        });
 
 
 
 
 
-        function addcart(x)
+            function addcart(x)
         {
             let vlist=[];
             vlist.indexOf(a) === -1 ? vlist.push(a) : console.log("Bu Öğe Daha Önce Eklenmiş..");
