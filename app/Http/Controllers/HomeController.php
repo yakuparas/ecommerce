@@ -363,7 +363,7 @@ WHERE
 
     public function step3(Request $request)
     {
-        echo $request->session()->get('uzunluk');
+
         $pvid=$request->session()->get('pvid');
         $babaid=$request->session()->get('babaid');
         $kapiid=$request->session()->get('kapiid');
@@ -492,7 +492,7 @@ WHERE
 
         }
 
-        $comments='<hr>Girilen çit uzunluğu '.$citgenisligi.'mm <br>Genişliği'.$kapigenisligi.' mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
+        $comments='<hr>Girilen çit uzunluğu '.$bahceuzunlugu.'mm <br>Genişliği'.$kapigenisligi.' mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
         $comments.='2500 mm yüksekliğinde'.$citadet." adet çit<br>";
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
