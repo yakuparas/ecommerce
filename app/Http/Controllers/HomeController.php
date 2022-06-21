@@ -417,7 +417,7 @@ WHERE
 
             foreach ($data as $key => $value) {
 
-                echo $voptions[$key];
+                echo $voptions->$key;
                 $total = 0;
                 $subtotal = 1;
                 $value->variants = $voptions[$key];
