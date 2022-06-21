@@ -365,6 +365,8 @@ WHERE
     {
         $pvid=$request->session()->get('pvid');
         $babaid=$request->session()->get('babaid');
+        $kapiid=$request->session()->get('kapiid');
+        $kapioptionid=$request->session()->get('kapioptionid');
         $id=$request->session()->get('pid');
         $bahceuzunlugu=intval($request->session()->get('uzunluk'))*1000; //mm cinsinden
         $kosesayisi=$request->session()->get('kose');
@@ -437,7 +439,43 @@ FROM
 WHERE
 	products.id = $babaid");
 
-        dd($baba);
+
+
+        $kapi=DB::select("SELECT
+	products.name AS pname,
+	products.image AS pimage,
+	products.id AS pid,
+	products.price
+FROM
+	products
+WHERE
+	products.id = $kapiid");
+
+
+        $kapioptions=DB::select("SELECT
+	product_variants.variant_options_id,
+	product_variants.id AS pvid,
+	product_variants.price AS vprice,
+	product_variants.price_prefix AS vprice_prefix,
+	variant_options.name as voname
+FROM
+	products
+	INNER JOIN
+	product_variants
+	ON
+		products.id = product_variants.product_id
+	INNER JOIN
+	variant_options
+	ON
+		product_variants.variant_options_id = variant_options.id
+WHERE
+	product_variants.id IN ($kapioptionid)");
+
+
+
+        dd($kapi,$kapioptionid);
+
+
 
 
 
