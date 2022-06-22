@@ -495,7 +495,10 @@ WHERE
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
 
         $products=array($cit,$baba,$kapi);
-        dd($products[0]['price']);
+       foreach ($products as $r)
+       {
+           dd($r->variant);
+       }
 
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
