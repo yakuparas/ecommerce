@@ -496,13 +496,16 @@ WHERE
         $comments.='2500 mm yüksekliğinde'.$citadet." adet çit<br>";
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
-        echo $comments;
-        dd($cit,$baba,$kapi);
+       return view('step3');
+
+
 
 
 
 
     }
+
+
 
 
 
