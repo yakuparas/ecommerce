@@ -15,29 +15,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product-order">
+                        @foreach()
                         <div class="row product-order-detail">
                             <div class="col-3"><img src="../assets/images/pro3/27.jpg" alt="" class="img-fluid blur-up lazyload"></div>
-                            <div class="col-3 order_detail">
-                                <div>
-                                    <h4>product name</h4>
-                                    <h5>cotton shirt</h5>
-                                </div>
-                            </div>
-                            <div class="col-3 order_detail">
-                                <div>
-                                    <h4>quantity</h4>
-                                    <h5>1</h5>
-                                </div>
-                            </div>
-                            <div class="col-3 order_detail">
-                                <div>
-                                    <h4>price</h4>
-                                    <h5>$555.00</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row product-order-detail">
-                            <div class="col-3"><img src="../assets/images/pro3/35.jpg" alt="" class="img-fluid blur-up lazyload"></div>
                             <div class="col-3 order_detail">
                                 <div>
                                     <h4>product name</h4>

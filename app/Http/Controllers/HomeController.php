@@ -494,7 +494,9 @@ WHERE
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
 
-            dd($cit,$kapi,$baba);
+        $products=array($cit,$baba,$kapi);
+        dd($products);
+
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
 
