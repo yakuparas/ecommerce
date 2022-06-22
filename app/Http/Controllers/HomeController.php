@@ -494,12 +494,9 @@ WHERE
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
 
-        $products=array($cit,$baba,$kapi);
-       foreach ($products as $r)
-       {
-           dd($r->variant);
-       }
 
+
+dd($cit,$kapi,$baba);
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
 

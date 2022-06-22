@@ -15,7 +15,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product-order">
-                        @foreach()
+                        @foreach($cit as $r)
+
                         <div class="row product-order-detail">
                             <div class="col-3"><img src="../assets/images/pro3/27.jpg" alt="" class="img-fluid blur-up lazyload"></div>
                             <div class="col-3 order_detail">
@@ -37,6 +38,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                         <div class="total-sec">
                             <ul>
                                 <li>subtotal <span>$55.00</span></li>
