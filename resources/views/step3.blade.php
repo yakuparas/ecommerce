@@ -18,23 +18,23 @@
                         @foreach($cit as $r)
 
                         <div class="row product-order-detail">
-                            <div class="col-3"><img src="../assets/images/pro3/27.jpg" alt="" class="img-fluid blur-up lazyload"></div>
+                            <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
                             <div class="col-3 order_detail">
                                 <div>
-                                    <h4>product name</h4>
-                                    <h5>cotton shirt</h5>
+                                    <h4>Ürün Adı</h4>
+                                    <h5>{{$r->name}}</h5>
                                 </div>
                             </div>
                             <div class="col-3 order_detail">
                                 <div>
-                                    <h4>quantity</h4>
-                                    <h5>1</h5>
+                                    <h4>Adet</h4>
+                                    <h5>{{$r->adet}}</h5>
                                 </div>
                             </div>
                             <div class="col-3 order_detail">
                                 <div>
-                                    <h4>price</h4>
-                                    <h5>$555.00</h5>
+                                    <h4>Fiyat</h4>
+                                    <h5>{{$r->price}}</h5>
                                 </div>
                             </div>
                         </div>
