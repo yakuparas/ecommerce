@@ -15,7 +15,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="product-order">
-                        @foreach($cit as $r)
+                        @php $toplam=0 @endphp
+                            @foreach($cit as $r)
 
                         <div class="row product-order-detail">
                             <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
@@ -44,6 +45,7 @@
                                 </div>
                             </div>
                         </div>
+                                @php $toplam+=$r->price*$r->adet @endphp
                         @endforeach
                             @foreach($kapi as $r)
 
@@ -74,6 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            @php $toplam+=$r->price*$r->adet @endphp
                             @endforeach
                             @foreach($baba as $r)
 
@@ -94,7 +97,7 @@
                                     <div class="col-2 order_detail">
                                         <div>
                                             <h4>Birim Fiyat</h4>
-                                            <h5>{{$r->price}}</h5>
+                                            <h5>{{$r->price}} €</h5>
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
@@ -104,16 +107,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            @php $toplam+=$r->price*$r->adet @endphp
                             @endforeach
-                        <div class="total-sec">
-                            <ul>
-                                <li>subtotal <span>$55.00</span></li>
-                                <li>shipping <span>$12.00</span></li>
-                                <li>tax(GST) <span>$10.00</span></li>
-                            </ul>
-                        </div>
+
                         <div class="final-total">
-                            <h3>total <span>$77.00</span></h3>
+                            <h3>Total <span>{{$toplam}} €</span></h3>
                         </div>
                     </div>
                 </div>
