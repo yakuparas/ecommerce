@@ -24,6 +24,11 @@
                                 <div>
                                     <h4>Çit</h4>
                                     <h5>{{$r->name}}</h5>
+                                    @isset($r->variant)
+                                        @foreach($r->variant as $v)
+                                            | {{$v->voname}}
+                                        @endforeach
+                                    @endisset
                                 </div>
                             </div>
                             <div class="col-2 order_detail">
@@ -55,6 +60,11 @@
                                         <div>
                                             <h4>Kapı</h4>
                                             <h5>{{$r->name}}</h5>
+                                            @isset($r->variant)
+                                                @foreach($r->variant as $v)
+                                                    | {{$v->voname}}
+                                                @endforeach
+                                            @endisset
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
@@ -86,6 +96,11 @@
                                         <div>
                                             <h4>Baba</h4>
                                             <h5>{{$r->name}}</h5>
+                                            @isset($r->variant)
+                                                @foreach($r->variant as $v)
+                                                    | {{$v->voname}}
+                                                @endforeach
+                                            @endisset
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
@@ -126,7 +141,7 @@
                                 </ul>
                             </div>
 
-                           
+
                         </div>
                     </div>
                 </div>
