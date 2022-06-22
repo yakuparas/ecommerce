@@ -26,7 +26,7 @@
                                     <h5>{{$r->name}}</h5>
                                     @isset($r->variant)
                                         @foreach($r->variant as $v)
-                                            | {{$v->voname}}
+                                             {{$v->voname}}
                                         @endforeach
                                     @endisset
                                 </div>
@@ -62,7 +62,7 @@
                                             <h5>{{$r->name}}</h5>
                                             @isset($r->variant)
                                                 @foreach($r->variant as $v)
-                                                    | {{$v->voname}}
+                                                     {{$v->voname}}
                                                 @endforeach
                                             @endisset
                                         </div>
@@ -98,7 +98,7 @@
                                             <h5>{{$r->name}}</h5>
                                             @isset($r->variant)
                                                 @foreach($r->variant as $v)
-                                                    | {{$v->voname}}
+                                                     {{$v->voname}}
                                                 @endforeach
                                             @endisset
                                         </div>
