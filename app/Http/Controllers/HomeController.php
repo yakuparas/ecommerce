@@ -20,6 +20,7 @@ use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -81,7 +82,9 @@ class HomeController extends Controller
 
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('index')->with('success', 'Giriş Yaptınız');
+           // return redirect()->route('index')->with('success', 'Giriş Yaptınız');
+
+            return Redirect::back()->with('success', 'Giriş Yaptınız');
         }
 
         return redirect()->route('login')->with('error', 'Kullanıcı Adı veya Şifre Yanlış');
@@ -379,7 +382,7 @@ WHERE
 
         $babadet=($citadet+1)-$kapiadet;
 
-  
+
 
 
         $cit=DB::select("SELECT
@@ -490,7 +493,15 @@ WHERE
         $comments.='2500 mm yüksekliğinde'.$citadet." adet çit<br>";
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
-       return view('step3');
+
+        if (Auth::check()) {
+
+            return view('step3');
+        }
+        else
+        {
+            return view("login");
+        }
 
 
 
