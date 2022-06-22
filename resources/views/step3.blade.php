@@ -138,7 +138,7 @@
                                     {!! $comments !!}
                                 </ul>
                             </div>
-
+<hr>
                             <div class="col-md-12">
                                 <div class="delivery-sec">
                                     <h3>Total: <span>{{$toplam}} €</span></h3>
