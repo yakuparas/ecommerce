@@ -495,9 +495,7 @@ WHERE
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
 
 
-$product=array();
-array_merge($product,$cit,$kapi,$baba);
-dd($product);
+
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
 
