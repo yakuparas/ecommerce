@@ -105,7 +105,7 @@
                             <div class="col-sm-6">
                                 <h4>Sipariş Notu</h4>
                                 <ul class="order-detail">
-                                  {{$comcomments}}
+                                    {{$comments}}
                                 </ul>
                             </div>
 
