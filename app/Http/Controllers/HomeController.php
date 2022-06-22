@@ -495,8 +495,9 @@ WHERE
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
 
 
-
-dd($cit,$kapi,$baba);
+$product=array();
+array_push($product,$cit,$kapi,$baba);
+dd($product);
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
 
