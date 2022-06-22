@@ -34,13 +34,13 @@
                             <div class="col-2 order_detail">
                                 <div>
                                     <h4>Birim Fiyat</h4>
-                                    <h5>{{$r->price}}</h5>
+                                    <h5>{{$r->price}} €</h5>
                                 </div>
                             </div>
                             <div class="col-2 order_detail">
                                 <div>
                                     <h4>Toplam</h4>
-                                    <h5>{{$r->price*$r->adet}} Euro</h5>
+                                    <h5>{{$r->price*$r->adet}} €</h5>
                                 </div>
                             </div>
                         </div>
@@ -64,13 +64,13 @@
                                     <div class="col-2 order_detail">
                                         <div>
                                             <h4>Birim Fiyat</h4>
-                                            <h5>{{$r->price}}</h5>
+                                            <h5>{{$r->price}} €</h5>
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
                                         <div>
                                             <h4>Toplam</h4>
-                                            <h5>{{$r->price*$r->adet}} Euro</h5>
+                                            <h5>{{$r->price*$r->adet}} €</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                     <div class="col-2 order_detail">
                                         <div>
                                             <h4>Toplam</h4>
-                                            <h5>{{$r->price*$r->adet}} Euro</h5>
+                                            <h5>{{$r->price*$r->adet}} €</h5>
                                         </div>
                                     </div>
                                 </div>
