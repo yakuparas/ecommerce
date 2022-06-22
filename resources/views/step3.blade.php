@@ -126,17 +126,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-sm-12 payment-mode">
-                                <h4>payment method</h4>
-                                <p>Pay on Delivery (Cash/Card). Cash on delivery (COD) available. Card/Net banking
-                                    acceptance subject to device availability.</p>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="delivery-sec">
-                                    <h3>expected date of delivery: <span>october 22, 2018</span></h3>
-                                    <a href="order-tracking.html">track order</a>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
