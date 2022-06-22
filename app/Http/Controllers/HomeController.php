@@ -494,14 +494,10 @@ WHERE
         $comments.=$babadet.' adet baba<br>';
         $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
 
-        if (Auth::check()) {
+            dd($cit,$kapi,$baba);
+            return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
-            return view('step3');
-        }
-        else
-        {
-            return view("login");
-        }
+
 
 
 
