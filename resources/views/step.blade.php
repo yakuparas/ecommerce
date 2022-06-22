@@ -59,7 +59,7 @@
                                         <ul id="variants-{{$i}}">
                                         @foreach($options as $r)
                                             @if($rs->variant_id==$r->variants_id)
-                                                    <li data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"><a>{{$r->name}}</a></li>
+                                                    <li  data-pvid="{{$r->pvid}}" data-price="{{$r->price}}" data-prefix="{{$r->price_prefix}}"><a>{{$r->name}}</a></li>
                                             @endif
 
                                         @endforeach
