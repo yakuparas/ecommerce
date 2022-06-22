@@ -379,13 +379,7 @@ WHERE
 
         $babadet=($citadet+1)-$kapiadet;
 
-        echo "Çit Adet: ".$citadet;
-        echo "<br>";
-        echo "Baba Adet :".$babadet;
-        echo "<br>";
-        echo $pvid;
-        echo "<br>";
-        echo $id;
+  
 
 
         $cit=DB::select("SELECT
