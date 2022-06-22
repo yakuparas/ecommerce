@@ -61,6 +61,12 @@
                                             <h5>{{$r->price}}</h5>
                                         </div>
                                     </div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Fiyat</h4>
+                                            <h5>{{$r->price}}</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                             @foreach($baba as $r)
