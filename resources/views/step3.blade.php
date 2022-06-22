@@ -109,9 +109,8 @@
                                 </div>
                             @php $toplam+=$r->price*$r->adet @endphp
                             @endforeach
-                        <div class="total-sec">
-
-                        </div>
+                       <br>
+                        <br>
                         <div class="final-total">
                             <h3>Total <span>{{$toplam}} €</span></h3>
                         </div>
