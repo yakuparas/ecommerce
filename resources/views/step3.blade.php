@@ -39,6 +39,54 @@
                             </div>
                         </div>
                         @endforeach
+                            @foreach($kapi as $r)
+
+                                <div class="row product-order-detail">
+                                    <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Ürün Adı</h4>
+                                            <h5>{{$r->name}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Adet</h4>
+                                            <h5>{{$r->adet}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Fiyat</h4>
+                                            <h5>{{$r->price}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            @foreach($baba as $r)
+
+                                <div class="row product-order-detail">
+                                    <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Ürün Adı</h4>
+                                            <h5>{{$r->name}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Adet</h4>
+                                            <h5>{{$r->adet}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 order_detail">
+                                        <div>
+                                            <h4>Fiyat</h4>
+                                            <h5>{{$r->price}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         <div class="total-sec">
                             <ul>
                                 <li>subtotal <span>$55.00</span></li>
