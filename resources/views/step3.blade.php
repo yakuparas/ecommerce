@@ -21,7 +21,7 @@
                             <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
                             <div class="col-3 order_detail">
                                 <div>
-                                    <h4>Ürün Adı</h4>
+                                    <h4>Çit</h4>
                                     <h5>{{$r->name}}</h5>
                                 </div>
                             </div>
@@ -33,14 +33,14 @@
                             </div>
                             <div class="col-2 order_detail">
                                 <div>
-                                    <h4>Fiyat</h4>
+                                    <h4>Birim Fiyat</h4>
                                     <h5>{{$r->price}}</h5>
                                 </div>
                             </div>
                             <div class="col-2 order_detail">
                                 <div>
-                                    <h4>Fiyat</h4>
-                                    <h5>{{$r->price}}</h5>
+                                    <h4>Toplam</h4>
+                                    <h5>{{$r->price*$r->adet}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                     <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
                                     <div class="col-3 order_detail">
                                         <div>
-                                            <h4>Ürün Adı</h4>
+                                            <h4>Kapı</h4>
                                             <h5>{{$r->name}}</h5>
                                         </div>
                                     </div>
@@ -63,14 +63,14 @@
                                     </div>
                                     <div class="col-2 order_detail">
                                         <div>
-                                            <h4>Fiyat</h4>
+                                            <h4>Birim Fiyat</h4>
                                             <h5>{{$r->price}}</h5>
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
                                         <div>
-                                            <h4>Fiyat</h4>
-                                            <h5>{{$r->price}}</h5>
+                                            <h4>Toplam</h4>
+                                            <h5>{{$r->price*$r->adet}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     <div class="col-3"><img src="{{$r->image}}" alt="" class="img-fluid blur-up lazyload"></div>
                                     <div class="col-3 order_detail">
                                         <div>
-                                            <h4>Ürün Adı</h4>
+                                            <h4>Baba</h4>
                                             <h5>{{$r->name}}</h5>
                                         </div>
                                     </div>
@@ -93,14 +93,14 @@
                                     </div>
                                     <div class="col-2 order_detail">
                                         <div>
-                                            <h4>Fiyat</h4>
+                                            <h4>Birim Fiyat</h4>
                                             <h5>{{$r->price}}</h5>
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
                                         <div>
-                                            <h4>Fiyat</h4>
-                                            <h5>{{$r->price}}</h5>
+                                            <h4>Toplam Fiyat</h4>
+                                            <h5>{{$r->price*$r->adet}}</h5>
                                         </div>
                                     </div>
                                 </div>
