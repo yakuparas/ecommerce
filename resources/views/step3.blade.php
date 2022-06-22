@@ -102,10 +102,10 @@
                 <div class="col-lg-6">
                     <div class="order-success-sec">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <h4>Sipariş Notu</h4>
                                 <ul class="order-detail">
-                                    {{$comments}}
+                                    {!! $comments !!}
                                 </ul>
                             </div>
 
