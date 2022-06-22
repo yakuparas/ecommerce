@@ -142,8 +142,7 @@
                             <div class="col-md-12">
                                 <div class="delivery-sec">
                                     <h3>Total: <span>{{$toplam}} €</span></h3>
-                                    <a href="order-tracking.html">Order Complete</a>
-                                </div>
+                                    <button type="submit" class="btn btn-solid" id="mc-submit">Order Complate</button>                                </div>
                             </div>
 
 
