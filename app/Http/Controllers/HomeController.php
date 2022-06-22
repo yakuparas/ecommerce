@@ -489,10 +489,11 @@ WHERE
 
         }
 
-        $comments='<hr>Girilen çit uzunluğu '.floatval($bahceuzunlugu/1000).' m <br>Genişliği'.$kapigenisligi.' mm olan '.$kapiadet.' adet kapı seçilmiştir.<br>Yapılan Seçimlere Göre<br> ';
-        $comments.='2500 mm yüksekliğinde'.$citadet." adet çit<br>";
-        $comments.=$babadet.' adet baba<br>';
-        $comments.='Gerekli Olacağı Hesaplanmıştır<br>';
+        $comments='<hr>Bahçe Uzunluğu '.floatval($bahceuzunlugu/1000).' m <br>';
+        $comments.='Genişliği '.$kapigenisligi.' mm.'.$kapiadet.' adet kapı seçilmiştir.<br>';
+        $comments.='<u>Yapılan Hesaplamalara Göre;</u><br>';
+        $comments.=$citgenisligi.' mm uzunluğunda. '.$citadet.' adet çit<br>';
+        $comments.=$babadet.' adet baba olarak hesaplanmıştır';
 
 
 
