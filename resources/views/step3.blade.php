@@ -103,22 +103,12 @@
                     <div class="order-success-sec">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h4>summery</h4>
+                                <h4>Sipariş Notu</h4>
                                 <ul class="order-detail">
-                                    <li>order ID: 5563853658932</li>
-                                    <li>Order Date: October 22, 2018</li>
-                                    <li>Order Total: $907.28</li>
+                                  {{$comcomments}}
                                 </ul>
                             </div>
-                            <div class="col-sm-6">
-                                <h4>shipping address</h4>
-                                <ul class="order-detail">
-                                    <li>gerg harvell</li>
-                                    <li>568, suite ave.</li>
-                                    <li>Austrlia, 235153</li>
-                                    <li>Contact No. 987456321</li>
-                                </ul>
-                            </div>
+
                             <div class="col-sm-12 payment-mode">
                                 <h4>payment method</h4>
                                 <p>Pay on Delivery (Cash/Card). Cash on delivery (COD) available. Card/Net banking
