@@ -386,9 +386,9 @@ WHERE
 
 
         $cit=DB::select("SELECT
-	products.name AS pname,
-	products.image AS pimage,
-	products.id AS pid,
+	products.name,
+	products.image,
+	products.id ,
 	products.price
 FROM
 	products
@@ -429,10 +429,10 @@ WHERE
 
 
         $baba=DB::select("SELECT
-	products.name as babaname,
-	products.image as bimage,
-	products.price as babaprice,
-	products.id as babaid
+	products.name,
+	products.image,
+	products.price,
+	products.id
 FROM
 	products
 WHERE
@@ -448,9 +448,9 @@ WHERE
 
 
         $kapi=DB::select("SELECT
-	products.name AS pname,
-	products.image AS pimage,
-	products.id AS pid,
+	products.name,
+	products.image,
+	products.id,
 	products.price
 FROM
 	products
