@@ -143,12 +143,12 @@
                                 <div class="delivery-sec">
                                     <h3>Total: <span>{{$toplam}} €</span></h3>
                                     <hr>
-                                    <form action="{{ route('paypal.charge') }}" method="post">
+                                    <form action="{{ route('planner.charge') }}" method="post">
 
 
                                     <input type="hidden"  value="{{$toplam}}" name="amount" />
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn-xs btn-solid" id="mc-submit">Order Complate</button>
+                                        <input type="submit" class="btn-solid btn" name="submit" value="Pay Now">
                                     </form>
                                 </div>
                             </div>
