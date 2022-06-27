@@ -143,7 +143,7 @@
                                 <div class="delivery-sec">
                                     <h3>Total: <span>{{$toplam}} €</span></h3>
                                     <hr>
-                                    <form action="{{ route('planner.charge') }}" method="post">
+                                    <form action="{{ route('paypal.charge') }}" method="post">
 
 
                                     <input type="hidden"  value="{{$toplam}}" name="amount" />
