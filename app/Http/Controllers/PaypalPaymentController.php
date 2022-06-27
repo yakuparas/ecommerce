@@ -149,4 +149,30 @@ class PaypalPaymentController extends Controller
         return 'User cancelled the payment.';
     }
 
+
+    public function plannercharge(Request $request)
+    {
+
+        if($request->input('submit'))
+        {
+            try {
+                $response = $this->gateway->purchase(array(
+                    'amount' => $request->input('amount'),
+                    'currency' => env('PAYPAL_CURRENCY'),
+                    'returnUrl' => url('success'),
+                    'cancelUrl' => url('error'),
+                ))->send();
+
+                if ($response->isRedirect()) {
+                    $response->redirect(); // this will automatically forward the customer
+                } else {
+                    // not successful
+                    return $response->getMessage();
+                }
+            } catch(Exception $e) {
+                return $e->getMessage();
+            }
+        }
+    }
+
 }

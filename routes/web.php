@@ -32,6 +32,8 @@ Route::get('zaunplanner', [HomeController::class,'zaunplanner'])->name("zaunplan
 Route::get('/zaunplanner/step-1/{id}', [HomeController::class,'step1'])->name("step1");
 Route::post('/zaunplanner/step-2', [HomeController::class,'step2'])->name("step2");
 Route::get('/zaunplanner/step-3', [HomeController::class,'step3'])->name("step3");
+Route::post('/zaunplanner/charge', [PaypalPaymentController::class,'plannercharge'])->name("planner.charge");
+
 
 
 Route::get('/',[HomeController::class,'index'])->name('index');
