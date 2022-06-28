@@ -88,7 +88,7 @@
                                 <div class="row mt-4">
                                     <div class="col-lg-8">
                                         <div class="section-title">Note</div>
-                                        <p class="section-lead">{{$order[0]->comment}}</p>
+                                        <p class="section-lead">{!! $order[0]->comment !!}</p>
 
                                     </div>
                                     <div class="col-lg-4 text-right">
