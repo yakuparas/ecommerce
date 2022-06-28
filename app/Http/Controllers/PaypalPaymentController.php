@@ -155,9 +155,11 @@ class PaypalPaymentController extends Controller
     public function plannercharge(Request $request)
     {
 
+
         if($request->input('submit'))
         {
             try {
+                session()->put('adressid',$request->adres);
                 $response = $this->gateway->purchase(array(
                     'amount' => $request->input('amount'),
                     'currency' => env('PAYPAL_CURRENCY'),
@@ -291,6 +293,7 @@ class PaypalPaymentController extends Controller
                     session()->forget('kapi');
                     session()->forget('baba');
                     session()->forget('comment');
+                    session()->forget('adressid');
 
 
 
