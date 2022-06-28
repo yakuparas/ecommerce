@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('payment', [PaypalPaymentController::class,'index'])->name("paypal.index");
 Route::post('charge', [PaypalPaymentController::class,'charge'])->name("paypal.charge");
 Route::get('success', [PaypalPaymentController::class,'success'])->name("paypal.success");
+Route::get('plannersuccess', [PaypalPaymentController::class,'plannersuccess'])->name("planner.success");
 Route::get('error', [PaypalPaymentController::class,'error'])->name("paypal.error");
 Route::get('zaunplanner', [HomeController::class,'zaunplanner'])->name("zaunplanner");
 Route::get('/zaunplanner/step-1/{id}', [HomeController::class,'step1'])->name("step1");
