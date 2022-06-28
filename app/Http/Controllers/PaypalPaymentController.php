@@ -194,7 +194,7 @@ class PaypalPaymentController extends Controller
 
             if ($response->isSuccessful())
             {
-dd(session()->get('cit'),session()->get('kapi'),session()->get('baba'));
+
                 // The customer has successfully paid.
                 $arr_body = $response->getData();
 
@@ -230,6 +230,8 @@ dd(session()->get('cit'),session()->get('kapi'),session()->get('baba'));
                                 $name.="|".$v->voname;
                                 $price+=$v->vprice;
 
+                                echo $price;
+
                             }
                         }
                         $orderProduct->quantity=$rs->adet;
@@ -238,7 +240,7 @@ dd(session()->get('cit'),session()->get('kapi'),session()->get('baba'));
                         $orderProduct->save();
 
                     }
-
+                    dd(session()->get('cit'),session()->get('kapi'),session()->get('baba'));
                     foreach (session()->get('kapi') as $rs)
                     {
 
