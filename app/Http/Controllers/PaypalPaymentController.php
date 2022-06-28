@@ -237,6 +237,7 @@ class PaypalPaymentController extends Controller
                         }
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
+                        echo "Çit ".$price;
                         $orderProduct->price=$price;
                         $orderProduct->save();
 
@@ -259,10 +260,13 @@ class PaypalPaymentController extends Controller
 
                             }
                         }
+
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
+                        echo "Kapi ".$price;
+                       
                         $orderProduct->price=$price;
-                        $orderProduct->save();
+                       // $orderProduct->save();
 
                     }
 
@@ -287,7 +291,7 @@ class PaypalPaymentController extends Controller
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
                         $orderProduct->price=$price;
-                        $orderProduct->save();
+                      //  $orderProduct->save();
 
                     }
 
@@ -301,7 +305,7 @@ class PaypalPaymentController extends Controller
 
                 }
 
-
+exit();
                 $id=$arr_body['id'];
 
                 return view('order-success',['id'=>$id]);
