@@ -230,9 +230,10 @@ class PaypalPaymentController extends Controller
                                 $name.="|".$v->voname;
                                 $price+=$v->vprice;
 
-                                echo $price;
+
 
                             }
+                            echo $price;
                         }
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
