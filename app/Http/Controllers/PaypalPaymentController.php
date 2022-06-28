@@ -164,7 +164,6 @@ class PaypalPaymentController extends Controller
                 ))->send();
 
                 if ($response->isRedirect()) {
-                    dd("aa");
                     $response->redirect(); // this will automatically forward the customer
                 } else {
                     // not successful
