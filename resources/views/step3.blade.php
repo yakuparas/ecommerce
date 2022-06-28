@@ -138,7 +138,7 @@
                                     {!! $comments !!}
                                 </ul>
                             </div>
-
+                            <form action="{{ route('planner.charge') }}" method="post">
                             @auth
                                 <div class="col-sm-12">
                                     <h4>Adres Seçiniz</h4>
@@ -155,7 +155,7 @@
                                 <div class="delivery-sec">
                                     <h3>Total: <span>{{$toplam}} €</span></h3>
                                     <hr>
-                                    <form action="{{ route('planner.charge') }}" method="post">
+
 
 
                                     <input type="hidden"  value="{{$toplam}}" name="amount" />
