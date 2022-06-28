@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {
@@ -83,8 +84,15 @@ WHERE
 
     public function historyadd(Request $request)
     {
-        $Order=Order::find($request->oid);
-        dd($Order,$request->all());
+        $order=Order::find($request->oid);
+        $order->status=$request->status;
+        $order->status=$request->status;
+        $order->history=$request->history;
+        $order->save();
+
+        return Redirect::back()->with('success', 'Order Details Add');
+
+
 
     }
 }
