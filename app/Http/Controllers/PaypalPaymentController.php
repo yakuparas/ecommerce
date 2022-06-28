@@ -233,7 +233,7 @@ class PaypalPaymentController extends Controller
 
 
                             }
-                            echo $price;
+
                         }
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
@@ -241,7 +241,6 @@ class PaypalPaymentController extends Controller
                         $orderProduct->save();
 
                     }
-                    dd(session()->get('cit'),session()->get('kapi'),session()->get('baba'));
                     foreach (session()->get('kapi') as $rs)
                     {
 
