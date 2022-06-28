@@ -142,6 +142,11 @@
                             @auth
                                 <div class="col-sm-12">
                                     <h4>Adres Seçiniz</h4>
+                                    <select name="adres" id="adres" class="form-control">
+                                        @foreach($adres as $rs)
+                                            <option value="{{$rs->id}}">{{$rs->name}}</option>
+                                        @endforeach
+                                    </select>
 
                                 </div>
                             @endauth
