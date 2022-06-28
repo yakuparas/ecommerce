@@ -194,7 +194,7 @@ class PaypalPaymentController extends Controller
 
             if ($response->isSuccessful())
             {
-
+dd(session()->get('cit'),session()->get('kapi'),session()->get('baba'));
                 // The customer has successfully paid.
                 $arr_body = $response->getData();
 
@@ -234,7 +234,7 @@ class PaypalPaymentController extends Controller
                         }
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
-                        $orderProduct->price=((int)$price * (int)$rs->adet);
+                        $orderProduct->price=$price;
                         $orderProduct->save();
 
                     }
@@ -259,7 +259,7 @@ class PaypalPaymentController extends Controller
                         }
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
-                        $orderProduct->price=((int)$price * (int)$rs->adet);
+                        $orderProduct->price=$price;
                         $orderProduct->save();
 
                     }
@@ -284,7 +284,7 @@ class PaypalPaymentController extends Controller
                         }
                         $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
-                        $orderProduct->price=((int)$price * (int)$rs->adet);
+                        $orderProduct->price=$price;
                         $orderProduct->save();
 
                     }
