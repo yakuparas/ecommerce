@@ -192,7 +192,6 @@ class PaypalPaymentController extends Controller
 
             if ($response->isSuccessful())
             {
-                dd(Session::get('cit'),Session::get('kapi'),Session::get('baba'),Session::get('comments'));
 
                 // The customer has successfully paid.
                 $arr_body = $response->getData();
@@ -207,36 +206,93 @@ class PaypalPaymentController extends Controller
                 $order->payment_status = $arr_body['state'];
                 $order->user_id = Auth::id();
                 $order->adress_id = $request->session()->get('adressid');
+                $order->comment = $request->session()->get('comment');
                 if($order->save())
                 {
                     $request->session()->forget('adressid');
 
 
-                    foreach (session()->get('cart') as $rs)
+                    foreach (session()->get('cit') as $rs)
                     {
 
                         $orderProduct=new OrderProduct();
                         $orderProduct->order_id=$order->id;
                         $orderProduct->product_id=$rs->id;
                         $name=$rs->name;
-                        if ( isset($rs->variants))
+                        $price=$rs->price;
+                        if ( isset($rs->variant))
                         {
-                            foreach($rs->variants as $v)
+                            $price=0;
+                            foreach($rs->variant as $v)
                             {
-                                $name.="|".$v->oname;
+                                $name.="|".$v->voname;
+                                $price+=$v->vprice;
 
                             }
                         }
-                        $orderProduct->quantity=$rs->quantity;
+                        $orderProduct->quantity=$rs->adet;
                         $orderProduct->product_name=$name;
-                        $orderProduct->price=((int)$rs->variantsprice * (int)$rs->quantity);
+                        $orderProduct->price=((int)$price * (int)$rs->adet);
                         $orderProduct->save();
 
                     }
 
-                    session()->forget('cart');
+                    foreach (session()->get('kapi') as $rs)
+                    {
 
-                    Cart::where('user_id',Auth::id())->delete();
+                        $orderProduct=new OrderProduct();
+                        $orderProduct->order_id=$order->id;
+                        $orderProduct->product_id=$rs->id;
+                        $name=$rs->name;
+                        $price=$rs->price;
+                        if ( isset($rs->variant))
+                        {
+                            $price=0;
+                            foreach($rs->variant as $v)
+                            {
+                                $name.="|".$v->voname;
+                                $price+=$v->vprice;
+
+                            }
+                        }
+                        $orderProduct->quantity=$rs->adet;
+                        $orderProduct->product_name=$name;
+                        $orderProduct->price=((int)$price * (int)$rs->adet);
+                        $orderProduct->save();
+
+                    }
+
+                    foreach (session()->get('baba') as $rs)
+                    {
+
+                        $orderProduct=new OrderProduct();
+                        $orderProduct->order_id=$order->id;
+                        $orderProduct->product_id=$rs->id;
+                        $name=$rs->name;
+                        $price=$rs->price;
+                        if ( isset($rs->variant))
+                        {
+                            $price=0;
+                            foreach($rs->variant as $v)
+                            {
+                                $name.="|".$v->voname;
+                                $price+=$v->vprice;
+
+                            }
+                        }
+                        $orderProduct->quantity=$rs->adet;
+                        $orderProduct->product_name=$name;
+                        $orderProduct->price=((int)$price * (int)$rs->adet);
+                        $orderProduct->save();
+
+                    }
+
+                    session()->forget('cit');
+                    session()->forget('kapi');
+                    session()->forget('baba');
+                    session()->forget('comment');
+
+
 
                 }
 

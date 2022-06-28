@@ -498,7 +498,7 @@ WHERE
         session()->put('cit',$cit);
         session()->put('kapi',$kapi);
         session()->put('baba',$baba);
-        session()->put('comments',$comments);
+        session()->put('comment',$comments);
 
         return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
