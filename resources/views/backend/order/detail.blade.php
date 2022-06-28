@@ -122,7 +122,7 @@
                                             <div class="form-group row mb-4">
                                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Açıklama</label>
                                                 <div class="col-sm-12 col-md-7">
-                                                    <textarea id="description" name="description"></textarea>
+                                                    <textarea id="description" class="form-control" name="description"></textarea>
 
                                                 </div>
                                             </div>
