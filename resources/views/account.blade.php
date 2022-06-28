@@ -126,7 +126,7 @@
                                                     <tr class="table-head">
                                                         <th scope="col">Order Id</th>
                                                         <th scope="col">Payment ID</th>
-                                                        <th scope="col">Tracking No</th>
+                                                        <th scope="col">History</th>
                                                         <th scope="col">Payment Status</th>
                                                         <th scope="col">Status</th>
                                                         <th scope="col">Details</th>
@@ -137,7 +137,7 @@
                                                     <tr>
                                                         <td> #{{$rs->id}}</td>
                                                         <td> {{$rs->payment_id}}</td>
-                                                        <td> {{$rs->tracking}}</td>
+                                                        <td> {{$rs->history}}</td>
                                                         <td> {{$rs->payment_status}}</td>
                                                         <td> {{$rs->status}}</td>
                                                         <td>
