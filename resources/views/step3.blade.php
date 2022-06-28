@@ -139,6 +139,13 @@
                                 </ul>
                             </div>
 
+                            @auth
+                                <div class="col-sm-12">
+                                    <h4>Adres Seçiniz</h4>
+
+                                </div>
+                            @endauth
+
                             <div class="col-md-12">
                                 <div class="delivery-sec">
                                     <h3>Total: <span>{{$toplam}} €</span></h3>

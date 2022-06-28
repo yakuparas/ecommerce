@@ -502,6 +502,9 @@ WHERE
 
         if (Auth::check())
         {
+            $adres=Addres::where('user_id',Auth::id())->get();
+
+            dd($adres);
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
         }
         else
