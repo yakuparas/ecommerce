@@ -96,11 +96,17 @@
                                         <div>
                                             <h4>Baba</h4>
                                             <h5>{{$r->name}}</h5>
-                                            @isset($r->variant)
+                                           @if(isset($r->variant))
+                                                @php $price=0; @endphp
                                                 @foreach($r->variant as $v)
                                                      {{$v->voname}}
+                                                    @php $price+=$v->vprice; @endphp
+
                                                 @endforeach
-                                            @endisset
+                                            @else
+                                                @php $price=$r->price; @endphp
+                                            @endif
+
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
@@ -112,17 +118,17 @@
                                     <div class="col-2 order_detail">
                                         <div>
                                             <h4>Birim Fiyat</h4>
-                                            <h5>{{$r->price}} €</h5>
+                                            <h5>{{$price}} €</h5>
                                         </div>
                                     </div>
                                     <div class="col-2 order_detail">
                                         <div>
                                             <h4>Toplam</h4>
-                                            <h5>{{$r->price*$r->adet}} €</h5>
+                                            <h5>{{price*$r->adet}} €</h5>
                                         </div>
                                     </div>
                                 </div>
-                            @php $toplam+=$r->price*$r->adet @endphp
+                            @php $toplam+=$price*$r->adet @endphp
                             @endforeach
                        <br>
                         <br>
