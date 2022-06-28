@@ -79,4 +79,12 @@ WHERE
 
 
     }
+
+
+    public function historyadd(Request $request)
+    {
+        $Order=Order::find($request->oid);
+        dd($Order,$request->all());
+
+    }
 }

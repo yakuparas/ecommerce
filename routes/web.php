@@ -134,6 +134,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 
     Route::get('/order',[\App\Http\Controllers\Backend\OrderController::class,'index'])->name('admin.order');
     Route::get('/orderdetail/{id}',[\App\Http\Controllers\Backend\OrderController::class,'show'])->name('admin.orderdetail');
+    Route::get('/historyadd',[\App\Http\Controllers\Backend\OrderController::class,'historyadd'])->name('admin.history.add');
 
 
 
