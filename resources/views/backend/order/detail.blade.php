@@ -100,6 +100,38 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-lg-12">
+                                        <div class="section-title">History</div>
+                                        <form method="POST" action="{{ route('admin.variants.store') }}"
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-group row mb-4">
+                                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Sipariş Durumu</label>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <select name="status" id="status" class="form-control">
+                                                        <option value="Onay Bekliyor">Onay Bekliyor</option>
+                                                        <option value="Hazırlanıyor">Hazırlanıyor</option>
+                                                        <option value="İptal Edildi">İptal Edildi</option>
+                                                        <option value="Kargoya Verildi">Kargoya Verildi</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-4">
+                                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Açıklama</label>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <textarea id="description" name="description"></textarea>
+
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
