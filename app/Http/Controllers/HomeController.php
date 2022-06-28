@@ -496,6 +496,9 @@ WHERE
         $comments.=$babadet.' adet baba olarak hesaplanmıştır';
 
         session()->put('cit',$cit);
+        session()->put('kapi',$kapi);
+        session()->put('baba',$baba);
+        session()->put('comments',$comments);
 
         return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
