@@ -495,7 +495,7 @@ WHERE
         $comments.=$citgenisligi.' mm uzunluğunda. '.$citadet.' adet çit<br>';
         $comments.=$babadet.' adet baba olarak hesaplanmıştır';
 
-
+            Session::set('cit',$cit);
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
 

@@ -190,7 +190,8 @@ class PaypalPaymentController extends Controller
 
             if ($response->isSuccessful())
             {
-                dd("ödeme alındı");
+                dd(Session::get('cit'));
+
                 // The customer has successfully paid.
                 $arr_body = $response->getData();
 
