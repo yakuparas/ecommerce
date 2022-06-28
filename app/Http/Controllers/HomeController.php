@@ -500,7 +500,15 @@ WHERE
         session()->put('baba',$baba);
         session()->put('comment',$comments);
 
-        return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
+        if (Auth::check())
+        {
+            return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
+        }
+        else
+        {
+            return view('login');
+        }
+
 
 
 
