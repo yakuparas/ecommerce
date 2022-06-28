@@ -496,17 +496,14 @@ WHERE
         $comments.=$babadet.' adet baba olarak hesaplanmıştır';
 
 
-
             return view('step3',['cit'=>$cit,'kapi'=>$kapi,'baba'=>$baba,'comments'=>$comments]);
 
 
 
-
-
-
-
-
     }
+
+
+
 
 
 
