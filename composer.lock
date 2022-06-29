@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91853a5dea05aea0cc14bbd676cbdfe6",
+    "content-hash": "d252c9ebc63516cffda6e2a9d7b64795",
     "packages": [
         {
             "name": "amrshawky/currency",
@@ -1085,68 +1085,6 @@
                 }
             ],
             "time": "2022-06-20T21:43:11+00:00"
-        },
-        {
-            "name": "joedixon/laravel-translation",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/eduPHP/laravel-translation.git",
-                "reference": "13e6b3c9837a0d0c2c60393b2f5810d5b68206c8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/eduPHP/laravel-translation/zipball/13e6b3c9837a0d0c2c60393b2f5810d5b68206c8",
-                "reference": "13e6b3c9837a0d0c2c60393b2f5810d5b68206c8",
-                "shasum": ""
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0.0",
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "JoeDixon\\Translation\\TranslationServiceProvider",
-                        "JoeDixon\\Translation\\TranslationBindingsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JoeDixon\\Translation\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "JoeDixon\\Translation\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Joe Dixon",
-                    "email": "hello@joedixon.co.uk"
-                }
-            ],
-            "description": "A tool for managing all of your Laravel translations",
-            "support": {
-                "source": "https://github.com/eduPHP/laravel-translation/tree/master"
-            },
-            "time": "2021-08-30T14:03:07+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8698,9 +8636,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "joedixon/laravel-translation": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
