@@ -53,7 +53,7 @@
 
 <!-- footer -->
 <footer class="footer-light">
-  
+
     <section class="section-b-space light-layout">
         <div class="container">
             <div class="row footer-theme partition-f">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d252c9ebc63516cffda6e2a9d7b64795",
+    "content-hash": "91853a5dea05aea0cc14bbd676cbdfe6",
     "packages": [
         {
             "name": "amrshawky/currency",
@@ -1087,6 +1087,68 @@
             "time": "2022-06-20T21:43:11+00:00"
         },
         {
+            "name": "joedixon/laravel-translation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eduPHP/laravel-translation.git",
+                "reference": "13e6b3c9837a0d0c2c60393b2f5810d5b68206c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eduPHP/laravel-translation/zipball/13e6b3c9837a0d0c2c60393b2f5810d5b68206c8",
+                "reference": "13e6b3c9837a0d0c2c60393b2f5810d5b68206c8",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0.0",
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JoeDixon\\Translation\\TranslationServiceProvider",
+                        "JoeDixon\\Translation\\TranslationBindingsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JoeDixon\\Translation\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "JoeDixon\\Translation\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joe Dixon",
+                    "email": "hello@joedixon.co.uk"
+                }
+            ],
+            "description": "A tool for managing all of your Laravel translations",
+            "support": {
+                "source": "https://github.com/eduPHP/laravel-translation/tree/master"
+            },
+            "time": "2021-08-30T14:03:07+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v9.19.0",
             "source": {
@@ -1647,16 +1709,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.0.22",
+            "version": "3.0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "bed1fbd81c7f30700d80dc2691074ea5a95c69f6"
+                "reference": "5b461a96d01144744077343908a2c196682c71e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/bed1fbd81c7f30700d80dc2691074ea5a95c69f6",
-                "reference": "bed1fbd81c7f30700d80dc2691074ea5a95c69f6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/5b461a96d01144744077343908a2c196682c71e6",
+                "reference": "5b461a96d01144744077343908a2c196682c71e6",
                 "shasum": ""
             },
             "require": {
@@ -1717,7 +1779,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.0.22"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.23"
             },
             "funding": [
                 {
@@ -1733,7 +1795,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-29T07:28:53+00:00"
+            "time": "2022-06-29T08:19:13+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -2048,16 +2110,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.58.0",
+            "version": "2.59.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "97a34af22bde8d0ac20ab34b29d7bfe360902055"
+                "reference": "9cea2f72585a46d0651ee6d4c8c8f752e78c16c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/97a34af22bde8d0ac20ab34b29d7bfe360902055",
-                "reference": "97a34af22bde8d0ac20ab34b29d7bfe360902055",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9cea2f72585a46d0651ee6d4c8c8f752e78c16c6",
+                "reference": "9cea2f72585a46d0651ee6d4c8c8f752e78c16c6",
                 "shasum": ""
             },
             "require": {
@@ -2072,11 +2134,12 @@
                 "doctrine/orm": "^2.7",
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
+                "ondrejmirtes/better-reflection": "*",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.54 || ^1.0",
-                "phpunit/php-file-iterator": "^2.0.5",
-                "phpunit/phpunit": "^7.5.20 || ^8.5.23",
+                "phpstan/phpstan": "^0.12.99 || ^1.7.14",
+                "phpunit/php-file-iterator": "^2.0.5 || ^3.0.6",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.26 || ^9.5.20",
                 "squizlabs/php_codesniffer": "^3.4"
             },
             "bin": [
@@ -2133,15 +2196,19 @@
             },
             "funding": [
                 {
-                    "url": "https://opencollective.com/Carbon",
-                    "type": "open_collective"
+                    "url": "https://github.com/sponsors/kylekatarnls",
+                    "type": "github"
                 },
                 {
-                    "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
+                    "url": "https://opencollective.com/Carbon#sponsor",
+                    "type": "opencollective"
+                },
+                {
+                    "url": "https://tidelift.com/subscription/pkg/packagist-nesbot-carbon?utm_source=packagist-nesbot-carbon&utm_medium=referral&utm_campaign=readme",
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-25T19:31:17+00:00"
+            "time": "2022-06-26T20:26:59+00:00"
         },
         {
             "name": "nette/schema",
@@ -8636,7 +8703,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "joedixon/laravel-translation": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
