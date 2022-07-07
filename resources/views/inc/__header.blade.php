@@ -12,7 +12,7 @@
                     <div class="header-contact">
                         <ul>
                             <li>{{$setting->company}}</li>
-                            <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: {{$setting->phone}}</li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i>{{__('site.Bizi Arayın')}}: {{$setting->phone}}</li>
                         </ul>
                     </div>
                 </div>
@@ -22,10 +22,10 @@
                         </li>
                         <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                             @guest
-                                Hesabım
+                            {{__('site.Hesabım')}}
                                 <ul class="onhover-show-div">
-                                    <li><a href="{{route('login')}}">Giriş Yap</a></li>
-                                    <li><a href="">Üye Ol</a></li>
+                                    <li><a href="{{route('login')}}">{{__('site.Giriş Yap')}}</a></li>
+                                    <li><a href="">{{{__('site.Üye Ol')}}}</a></li>
                                 </ul>
                             @endguest
                            @auth
@@ -67,7 +67,7 @@
                                     <li>
                                         <div class="mobile-back text-end">Geri<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                     </li>
-                                    <li><a href="/">Anasayfa</a></li>
+                                    <li><a href="/">{{__('site.anasayfa')}}</a></li>
 
 
                                     @foreach($catList as $rs)
@@ -79,7 +79,7 @@
 
                                     @endforeach
 
-                                    <li><a href="{{route('zaunplanner')}}">Zauplanner</a></li>
+                                    <li><a href="{{route('zaunplanner')}}">{{__('site.planlayıcı')}}</a></li>
 
                                 </ul>
                             </nav>
@@ -108,21 +108,21 @@
                                             </div>
                                         </div>
                                     </li>
+
                                     <li class="onhover-div mobile-setting">
                                         <div><img src="/frontend/assets/images/icon/setting.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i></div>
                                         <div class="show-div setting">
                                             <h6>Dil</h6>
                                             <ul>
-                                                <li><a href="#">english</a></li>
-                                                <li><a href="#">french</a></li>
+                                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                    <li>
+                                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                            {{ $properties['native'] }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
-                                            <h6>Parabirimi</h6>
-                                            <ul class="list-inline">
-                                                <li><a href="#">euro</a></li>
-                                                <li><a href="#">rupees</a></li>
-                                                <li><a href="#">pound</a></li>
-                                                <li><a href="#">doller</a></li>
-                                            </ul>
+
                                         </div>
                                     </li>
                                     <li class="onhover-div mobile-cart">

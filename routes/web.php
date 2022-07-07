@@ -23,53 +23,63 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('payment', [PaypalPaymentController::class,'index'])->name("paypal.index");
-Route::post('charge', [PaypalPaymentController::class,'charge'])->name("paypal.charge");
-Route::get('success', [PaypalPaymentController::class,'success'])->name("paypal.success");
-Route::get('plannersuccess', [PaypalPaymentController::class,'plannersuccess'])->name("planner.success");
-Route::get('error', [PaypalPaymentController::class,'error'])->name("paypal.error");
-Route::get('zaunplanner', [HomeController::class,'zaunplanner'])->name("zaunplanner");
-Route::get('/zaunplanner/step-1/{id}', [HomeController::class,'step1'])->name("step1");
-Route::post('/zaunplanner/step-2', [HomeController::class,'step2'])->name("step2");
-Route::get('/zaunplanner/step-3', [HomeController::class,'step3'])->name("step3");
-Route::post('/zaunplanner/charge', [PaypalPaymentController::class,'plannercharge'])->name("planner.charge");
-
-
-
-Route::get('/',[HomeController::class,'index'])->name('index');
-Route::get('/product/{id}/{slug}',[HomeController::class,'product'])->name('product');
-Route::get('/category/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
-Route::get('/addtocart/{id}',[HomeController::class,'index'])->name('addtocart');
-Route::get('/aa/{id}/{name}',[HomeController::class,'productdetail'])->name('product-detail');
-Route::get('/login',[HomeController::class,'login'])->name('login');
-Route::post('/checkLogin',[HomeController::class,'checkLogin'])->name('checkLogin');
-Route::get('/zauplanner/variants/fetch/{id}',[HomeController::class,'variantsfetch'])->name('zauplanner.variants.fetch');
-
-Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-    Route::get('/logout',[HomeController::class,'logout'])->name('logout');
-    Route::get('/profile',[HomeController::class,'profile'])->name('profile');
-    Route::post('/profile-update',[HomeController::class,'profileupdate'])->name('profile-update');
-    Route::post('/createadres',[HomeController::class,'createadres'])->name('createadres');
-    Route::post('/editadress',[HomeController::class,'editadress'])->name('editadress');
-    Route::get('/destroyadress/{id}',[HomeController::class,'destroyadress'])->name('destroyadress');
-    Route::post('/orderdetail',[HomeController::class,'orderdetail'])->name('orderdetail');
+
+    Route::get('payment', [PaypalPaymentController::class,'index'])->name("paypal.index");
+    Route::post('charge', [PaypalPaymentController::class,'charge'])->name("paypal.charge");
+    Route::get('success', [PaypalPaymentController::class,'success'])->name("paypal.success");
+    Route::get('plannersuccess', [PaypalPaymentController::class,'plannersuccess'])->name("planner.success");
+    Route::get('error', [PaypalPaymentController::class,'error'])->name("paypal.error");
+    Route::get('zaunplanner', [HomeController::class,'zaunplanner'])->name("zaunplanner");
+    Route::get('/zaunplanner/step-1/{id}', [HomeController::class,'step1'])->name("step1");
+    Route::post('/zaunplanner/step-2', [HomeController::class,'step2'])->name("step2");
+    Route::get('/zaunplanner/step-3', [HomeController::class,'step3'])->name("step3");
+    Route::post('/zaunplanner/charge', [PaypalPaymentController::class,'plannercharge'])->name("planner.charge");
+
+
+
+    Route::get('/',[HomeController::class,'index'])->name('index');
+    Route::get('/product/{id}/{slug}',[HomeController::class,'product'])->name('product');
+    Route::get('/category/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
+    Route::get('/addtocart/{id}',[HomeController::class,'index'])->name('addtocart');
+    Route::get('/aa/{id}/{name}',[HomeController::class,'productdetail'])->name('product-detail');
+    Route::get('/login',[HomeController::class,'login'])->name('login');
+    Route::post('/checkLogin',[HomeController::class,'checkLogin'])->name('checkLogin');
+    Route::get('/zauplanner/variants/fetch/{id}',[HomeController::class,'variantsfetch'])->name('zauplanner.variants.fetch');
+
+    Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
+    {
+        Route::get('/logout',[HomeController::class,'logout'])->name('logout');
+        Route::get('/profile',[HomeController::class,'profile'])->name('profile');
+        Route::post('/profile-update',[HomeController::class,'profileupdate'])->name('profile-update');
+        Route::post('/createadres',[HomeController::class,'createadres'])->name('createadres');
+        Route::post('/editadress',[HomeController::class,'editadress'])->name('editadress');
+        Route::get('/destroyadress/{id}',[HomeController::class,'destroyadress'])->name('destroyadress');
+        Route::post('/orderdetail',[HomeController::class,'orderdetail'])->name('orderdetail');
+
+    });
+
+    Route::prefix('cart')->group(function (){
+
+        Route::get('/',[CartController::class,'index'])->name('cart');
+        Route::get('create',[CartController::class,'create'])->name('cart.add');
+        Route::post('store',[CartController::class,'store'])->name('cart.store');
+        Route::post('delete/{id}',[CartController::class,'destroy'])->name('cart.delete');
+        Route::post('update/{id}',[CartController::class,'update'])->name('cart.update');
+        Route::get('edit/{id}',[CartController::class,'edit'])->name('cart.edit');
+        Route::get('show/{id}',[CartController::class,'show'])->name('cart.show');
+        Route::get('/checkout',[CartController::class,'checkout'])->name('checkout');
+
+    });
+
+
+
 
 });
 
-Route::prefix('cart')->group(function (){
 
-    Route::get('/',[CartController::class,'index'])->name('cart');
-    Route::get('create',[CartController::class,'create'])->name('cart.add');
-    Route::post('store',[CartController::class,'store'])->name('cart.store');
-    Route::post('delete/{id}',[CartController::class,'destroy'])->name('cart.delete');
-    Route::post('update/{id}',[CartController::class,'update'])->name('cart.update');
-    Route::get('edit/{id}',[CartController::class,'edit'])->name('cart.edit');
-    Route::get('show/{id}',[CartController::class,'show'])->name('cart.show');
-    Route::get('/checkout',[CartController::class,'checkout'])->name('checkout');
 
-});
 
 Route::prefix('admin')->group(function () {
     Route::get('/',[AuthController::class,'index'])->name('admin.login');

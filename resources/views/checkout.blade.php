@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-sm-6 col-xs-6">
                                 <div class="checkout-title">
-                                    <h3>Fatura Detayı</h3>
+                                    <h3>{{__('checkout.Fatura Detayı')}}</h3>
                                 </div>
                                 <form action="{{ route('paypal.charge') }}" method="post">
                                 <div class="row check-out">
@@ -111,7 +111,7 @@
 
                                                 <input type="hidden"  value="{{number_format($toplam, 2, '.', '');}}" name="amount" />
                                                 {{ csrf_field() }}
-                                                <input type="submit" class="btn-solid btn" name="submit" value="Pay Now">
+                                                <input type="submit" class="btn-solid btn" name="submit" value="{{__('checkout.Ödeme Yap')}}">
                                             </form>
                                         </div>
 

@@ -14,12 +14,11 @@
                     <table class="table cart-table">
                         <thead>
                         <tr class="table-head">
-                            <th scope="col">Resim</th>
-                            <th scope="col">Ürün Adı</th>
-                            <th scope="col">Fiyat</th>
-                            <th scope="col">Miktar</th>
-                            <th scope="col">Toplam</th>
-                            <th scope="col">İşlem</th>
+                            <th scope="col">{{__('cart.resim')}}</th>
+                            <th scope="col">{{__('cart.ürün adi')}}</th>
+                            <th scope="col">{{__('cart.fiyat')}}</th>
+                            <th scope="col">{{__('cart.miktar')}}</th>
+                            <th scope="col">{{__('cart.toplam')}}</th>
                         </tr>
                         </thead>
 
@@ -52,7 +51,6 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
                                 <td>{{number_format(($rs->variantsprice*$rs->quantity), 2, ',', '.')}} €</td>
 
                             </tr>
@@ -65,7 +63,7 @@
                         <table class="table cart-table ">
                             <tfoot>
                             <tr>
-                                <td>Toplam Fiyat :</td>
+                                <td>{{__('cart.Toplam Fiyat')}} :</td>
                                 <td>
                                     <h2>{{number_format($toplam, 2, ',', '.')}} €</h2>
                                 </td>
@@ -76,8 +74,8 @@
                 </div>
             </div>
             <div class="row cart-buttons">
-                <div class="col-6"><a href="/" class="btn btn-solid">Alışverişe Devam Et</a></div>
-                <div class="col-6"><a href="{{route('checkout')}}" class="btn btn-solid">check out</a></div>
+                <div class="col-6"><a href="/" class="btn btn-solid">{{__('cart.Alışverişe Devam Et')}}</a></div>
+                <div class="col-6"><a href="{{route('checkout')}}" class="btn btn-solid">{{__('cart.Alışverişi Tamamla')}}</a></div>
             </div>
         </div>
     </section>
